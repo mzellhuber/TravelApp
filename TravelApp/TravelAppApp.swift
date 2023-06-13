@@ -13,8 +13,7 @@ struct TravelAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
-        .modelContainer(for: Item.self)
     }
 }
