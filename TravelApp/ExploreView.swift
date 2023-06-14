@@ -9,8 +9,31 @@ import SwiftUI
 
 struct ExploreView: View {
     var body: some View {
-        VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            Section {
+                Text("hello")
+                Text("hello")
+                Text("hello")
+                Text("hello")
+                Text("hello")
+                Text("hello")
+            }
+            Section {
+                Text("hello")
+                Text("hello")
+                Text("hello")
+                Text("hello")
+                Text("hello")
+                Text("hello")
+                Text("hello")
+                Text("hello")
+            }
+            Section {
+                Text("hello")
+                Text("hello")
+                Text("hello")
+                Text("hello")
+            }
         }
     }
 }

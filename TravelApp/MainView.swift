@@ -7,26 +7,27 @@
 
 import SwiftUI
 
-// TODO: tried to make animated sf symbols but could not do in in TabView
 struct MainView: View {
+    @State var selectedIndex: Int = 0
+    
     var body: some View {
-        TabView {
+        CustomTabView(tabs: TabType.allCases.map({ $0.tabItem }), selectedIndex: $selectedIndex) { index in
+            let type = TabType(rawValue: index) ?? .home
+            getTabView(type: type)
+        }
+    }
+    
+    @ViewBuilder
+    func getTabView(type: TabType) -> some View {
+        switch type {
+        case .home:
             ExploreView()
-                .tabItem {
-                    Image(systemName: "house")
-                }
+        case .search:
             SearchView()
-                .tabItem {
-                    Image(systemName: "magnifyingglass")
-                }
+        case .myTrips:
             MyTripsView()
-                .tabItem {
-                    Image(systemName: "map")
-                }
+        case .profile:
             ProfileView()
-                .tabItem {
-                    Image(systemName: "person.crop.circle")
-                }
         }
     }
 }

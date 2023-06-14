@@ -18,6 +18,9 @@
 		32272C2E2A38DFF000E9926B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32272C2D2A38DFF000E9926B /* ProfileView.swift */; };
 		32272C302A38E01D00E9926B /* MyTripsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32272C2F2A38E01D00E9926B /* MyTripsView.swift */; };
 		32272C322A38E03400E9926B /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32272C312A38E03400E9926B /* SearchView.swift */; };
+		32272C342A39D82D00E9926B /* CustomTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32272C332A39D82D00E9926B /* CustomTabItem.swift */; };
+		32272C372A39D8ED00E9926B /* CustomBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32272C362A39D8ED00E9926B /* CustomBottomView.swift */; };
+		32272C392A39DAB800E9926B /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32272C382A39DAB800E9926B /* CustomTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,9 @@
 		32272C2D2A38DFF000E9926B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		32272C2F2A38E01D00E9926B /* MyTripsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTripsView.swift; sourceTree = "<group>"; };
 		32272C312A38E03400E9926B /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		32272C332A39D82D00E9926B /* CustomTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabItem.swift; sourceTree = "<group>"; };
+		32272C362A39D8ED00E9926B /* CustomBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBottomView.swift; sourceTree = "<group>"; };
+		32272C382A39DAB800E9926B /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,7 @@
 		2FAEF09B2A38CFFB007D12AA /* TravelApp */ = {
 			isa = PBXGroup;
 			children = (
+				32272C352A39D8DD00E9926B /* CustomTabView */,
 				2FAEF09C2A38CFFB007D12AA /* TravelAppApp.swift */,
 				32272C292A38DF7600E9926B /* MainView.swift */,
 				32272C2B2A38DFE100E9926B /* ExploreView.swift */,
@@ -137,6 +144,16 @@
 				2FAEF0BB2A38CFFC007D12AA /* TravelAppUITestsLaunchTests.swift */,
 			);
 			path = TravelAppUITests;
+			sourceTree = "<group>";
+		};
+		32272C352A39D8DD00E9926B /* CustomTabView */ = {
+			isa = PBXGroup;
+			children = (
+				32272C332A39D82D00E9926B /* CustomTabItem.swift */,
+				32272C362A39D8ED00E9926B /* CustomBottomView.swift */,
+				32272C382A39DAB800E9926B /* CustomTabView.swift */,
+			);
+			path = CustomTabView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,8 +288,11 @@
 			files = (
 				32272C2E2A38DFF000E9926B /* ProfileView.swift in Sources */,
 				32272C2A2A38DF7600E9926B /* MainView.swift in Sources */,
+				32272C342A39D82D00E9926B /* CustomTabItem.swift in Sources */,
+				32272C372A39D8ED00E9926B /* CustomBottomView.swift in Sources */,
 				32272C2C2A38DFE100E9926B /* ExploreView.swift in Sources */,
 				32272C302A38E01D00E9926B /* MyTripsView.swift in Sources */,
+				32272C392A39DAB800E9926B /* CustomTabView.swift in Sources */,
 				32272C322A38E03400E9926B /* SearchView.swift in Sources */,
 				2FAEF09D2A38CFFB007D12AA /* TravelAppApp.swift in Sources */,
 			);
