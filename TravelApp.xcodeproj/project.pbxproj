@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		2FAEF09D2A38CFFB007D12AA /* TravelAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAEF09C2A38CFFB007D12AA /* TravelAppApp.swift */; };
-		2FAEF09F2A38CFFB007D12AA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAEF09E2A38CFFB007D12AA /* ContentView.swift */; };
 		2FAEF0A12A38CFFC007D12AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FAEF0A02A38CFFC007D12AA /* Assets.xcassets */; };
 		2FAEF0A42A38CFFC007D12AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FAEF0A32A38CFFC007D12AA /* Preview Assets.xcassets */; };
-		2FAEF0A62A38CFFC007D12AA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAEF0A52A38CFFC007D12AA /* Item.swift */; };
 		2FAEF0B02A38CFFC007D12AA /* TravelAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAEF0AF2A38CFFC007D12AA /* TravelAppTests.swift */; };
 		2FAEF0BA2A38CFFC007D12AA /* TravelAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAEF0B92A38CFFC007D12AA /* TravelAppUITests.swift */; };
 		2FAEF0BC2A38CFFC007D12AA /* TravelAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAEF0BB2A38CFFC007D12AA /* TravelAppUITestsLaunchTests.swift */; };
+		32272C2A2A38DF7600E9926B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32272C292A38DF7600E9926B /* MainView.swift */; };
+		32272C2C2A38DFE100E9926B /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32272C2B2A38DFE100E9926B /* ExploreView.swift */; };
+		32272C2E2A38DFF000E9926B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32272C2D2A38DFF000E9926B /* ProfileView.swift */; };
+		32272C302A38E01D00E9926B /* MyTripsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32272C2F2A38E01D00E9926B /* MyTripsView.swift */; };
+		32272C322A38E03400E9926B /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32272C312A38E03400E9926B /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,15 +40,18 @@
 /* Begin PBXFileReference section */
 		2FAEF0992A38CFFB007D12AA /* TravelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FAEF09C2A38CFFB007D12AA /* TravelAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelAppApp.swift; sourceTree = "<group>"; };
-		2FAEF09E2A38CFFB007D12AA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2FAEF0A02A38CFFC007D12AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FAEF0A32A38CFFC007D12AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		2FAEF0A52A38CFFC007D12AA /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		2FAEF0AB2A38CFFC007D12AA /* TravelAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FAEF0AF2A38CFFC007D12AA /* TravelAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelAppTests.swift; sourceTree = "<group>"; };
 		2FAEF0B52A38CFFC007D12AA /* TravelAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FAEF0B92A38CFFC007D12AA /* TravelAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelAppUITests.swift; sourceTree = "<group>"; };
 		2FAEF0BB2A38CFFC007D12AA /* TravelAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		32272C292A38DF7600E9926B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		32272C2B2A38DFE100E9926B /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		32272C2D2A38DFF000E9926B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		32272C2F2A38E01D00E9926B /* MyTripsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTripsView.swift; sourceTree = "<group>"; };
+		32272C312A38E03400E9926B /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +103,12 @@
 			isa = PBXGroup;
 			children = (
 				2FAEF09C2A38CFFB007D12AA /* TravelAppApp.swift */,
-				2FAEF09E2A38CFFB007D12AA /* ContentView.swift */,
+				32272C292A38DF7600E9926B /* MainView.swift */,
+				32272C2B2A38DFE100E9926B /* ExploreView.swift */,
+				32272C2D2A38DFF000E9926B /* ProfileView.swift */,
+				32272C2F2A38E01D00E9926B /* MyTripsView.swift */,
+				32272C312A38E03400E9926B /* SearchView.swift */,
 				2FAEF0A02A38CFFC007D12AA /* Assets.xcassets */,
-				2FAEF0A52A38CFFC007D12AA /* Item.swift */,
 				2FAEF0A22A38CFFC007D12AA /* Preview Content */,
 			);
 			path = TravelApp;
@@ -260,8 +269,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FAEF09F2A38CFFB007D12AA /* ContentView.swift in Sources */,
-				2FAEF0A62A38CFFC007D12AA /* Item.swift in Sources */,
+				32272C2E2A38DFF000E9926B /* ProfileView.swift in Sources */,
+				32272C2A2A38DF7600E9926B /* MainView.swift in Sources */,
+				32272C2C2A38DFE100E9926B /* ExploreView.swift in Sources */,
+				32272C302A38E01D00E9926B /* MyTripsView.swift in Sources */,
+				32272C322A38E03400E9926B /* SearchView.swift in Sources */,
 				2FAEF09D2A38CFFB007D12AA /* TravelAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
