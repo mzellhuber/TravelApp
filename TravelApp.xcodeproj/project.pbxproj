@@ -110,7 +110,6 @@
 			children = (
 				2FAEF0C92A3A1C2C007D12AA /* Models */,
 				2FAEF0C82A3A1BF4007D12AA /* Views */,
-				32272C352A39D8DD00E9926B /* CustomTabView */,
 				2FAEF09C2A38CFFB007D12AA /* TravelAppApp.swift */,
 				2FAEF0A02A38CFFC007D12AA /* Assets.xcassets */,
 				2FAEF0A22A38CFFC007D12AA /* Preview Content */,
@@ -146,6 +145,7 @@
 		2FAEF0C82A3A1BF4007D12AA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				32272C352A39D8DD00E9926B /* CustomTabView */,
 				32272C292A38DF7600E9926B /* MainView.swift */,
 				32272C2B2A38DFE100E9926B /* ExploreView.swift */,
 				32272C2D2A38DFF000E9926B /* ProfileView.swift */,
