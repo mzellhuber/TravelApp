@@ -23,7 +23,6 @@ struct CustomTabView<Content: View>: View {
                 }
                 VStack {
                     CustomBottomView(tabbarItems: tabs, selectedIndex: $selectedIndex)
-                    Spacer()
                 }
             }
         }
