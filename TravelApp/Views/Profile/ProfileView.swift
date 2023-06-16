@@ -1,19 +1,17 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @State private var userName: String = "John Doe" // Placeholder name
-    @State private var userEmail: String = "user@example.com" // Placeholder email
-    @State private var userImage: Image = Image(systemName: "person.crop.circle.fill") // Placeholder image
-    @State private var bannerImage: Image = Image(systemName: "photo") // Placeholder image
-    @State private var userLocation: String = "🇺🇸 San Francisco" // Placeholder location
-    @State private var showLoginView: Bool = false
+    @State private var userName: String = "John Doe"
+    @State private var userEmail: String = "user@example.com"
+    @State private var userImage: Image = Image(systemName: "person.crop.circle.fill")
+    @State private var bannerImage: Image = Image(systemName: "photo")
+    @State private var userLocation: String = "🇺🇸 San Francisco"
     @State private var showSettingsView: Bool = false
 
     var body: some View {
         NavigationView {
             VStack {
                 ZStack(alignment: .bottomLeading) {
-                    // Display the banner image
                     bannerImage
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -21,7 +19,6 @@ struct ProfileView: View {
                         .clipped()
                         .edgesIgnoringSafeArea(.top)
 
-                    // Display the user's image
                     userImage
                         .resizable()
                         .scaledToFit()
@@ -33,46 +30,42 @@ struct ProfileView: View {
                         .padding(.bottom, -50)
                 }
 
-                // Display the user's name
                 Text(userName)
                     .font(.largeTitle)
-                    .fontWeight(.medium) // Set font weight to medium
+                    .fontWeight(.medium)
                     .padding(.top, 50)
 
-                // Display the user's email
                 Text(userEmail)
                     .font(.title2)
                     .padding(.top, 10)
 
-                // Display the user's location
                 Text(userLocation)
                     .font(.title2)
                     .padding(.top, 10)
 
                 Spacer()
             }
-            .onAppear {
-                // TODO: Check if the user is already logged in and update isLoggedin
-            }
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        showSettingsView = true
-                    }) {
-                        Image(systemName: "gearshape")
-                            .foregroundColor(Color.purple)
-                            .padding(10)
-                    }
-                    .sheet(isPresented: $showSettingsView) {
-                        // TODO: Display the settings view
-                    }
+            .navigationBarItems(trailing:
+                Button(action: {
+                    showSettingsView = true
+                    print("Gear icon tapped!")
+                }) {
+                    Image(systemName: "gearshape")
+                        .font(.system(size: 20))
+                        .foregroundColor(.purple)
+                        .padding()
+                        .background(Color.white)
+                        .clipShape(Circle())
                 }
-            }
-            .accentColor(.black) // Set the color of the navigation bar title and toolbar items to black
+                .sheet(isPresented: $showSettingsView) {
+                    SettingsView()
+                }
+            )
         }
     }
 }
+
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {

@@ -10,9 +10,10 @@ import SwiftUI
 struct SettingsView: View {
     @State private var notificationsEnabled = true
     @State private var temperatureUnit = "Celsius"
-    @State private var themePreference = "System"
     @State private var logOutConfirmation = false
     @State private var isLoggedIn = false  // Simulate user login status
+    
+    @AppStorage("themePreference") var themePreference: String = "System"
 
     var body: some View {
         NavigationView {

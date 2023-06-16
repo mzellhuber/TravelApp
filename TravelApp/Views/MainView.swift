@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct MainView: View {
     @State var selectedIndex: Int = 0
     
@@ -21,16 +23,31 @@ struct MainView: View {
     func getTabView(type: TabType) -> some View {
         switch type {
         case .home:
-            ExploreView()
+            NavigationView {
+                ExploreView()
+            }
         case .search:
-            SearchView()
+            NavigationView {
+                SearchView()
+            }
         case .myTrips:
-            MyTripsView()
+            NavigationView {
+                MyTripsView()
+            }
         case .profile:
-            ProfileView()
+            NavigationView {
+                ProfileView()
+            }
         }
     }
 }
+
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
+    }
+}
+
 
 #Preview {
     MainView()
