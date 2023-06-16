@@ -62,7 +62,7 @@ struct ProfileView: View {
                     Text(isLoggedin ? "Logout" : "Login")
                         .foregroundColor(.white)
                         .padding()
-                        .background(Color.blue)
+                        .background(Color.purple)
                         .cornerRadius(10)
                         .shadow(color: .gray, radius: 2, x: 0, y: 2)
                 }
@@ -84,7 +84,7 @@ struct ProfileView: View {
                         showSettingsView = true
                     }) {
                         Image(systemName: "gearshape")
-                            .foregroundColor(.black)
+                            .foregroundColor(Color.purple)
                             .padding(10)
                     }
                     .sheet(isPresented: $showSettingsView) {
