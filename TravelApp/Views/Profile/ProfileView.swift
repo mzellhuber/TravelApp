@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @State private var isLoggedin: Bool = false
     @State private var userName: String = "John Doe" // Placeholder name
     @State private var userEmail: String = "user@example.com" // Placeholder email
     @State private var userImage: Image = Image(systemName: "person.crop.circle.fill") // Placeholder image
@@ -49,28 +48,6 @@ struct ProfileView: View {
                 Text(userLocation)
                     .font(.title2)
                     .padding(.top, 10)
-
-                // Display the Login/Logout button
-                Button(action: {
-                    if isLoggedin {
-                        // TODO: Perform logout action
-                        isLoggedin = false
-                    } else {
-                        showLoginView = true
-                    }
-                }) {
-                    Text(isLoggedin ? "Logout" : "Login")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.purple)
-                        .cornerRadius(10)
-                        .shadow(color: .gray, radius: 2, x: 0, y: 2)
-                }
-                .sheet(isPresented: $showLoginView) {
-                    // TODO: Display the login view
-                }
-                .padding(.top, 20)
-                .padding(.horizontal, 40)
 
                 Spacer()
             }

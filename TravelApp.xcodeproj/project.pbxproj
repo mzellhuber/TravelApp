@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2FAE46D72A3BF22E00D88E4C /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE46D62A3BF22E00D88E4C /* Profile.swift */; };
+		2FAE46DA2A3BF4B700D88E4C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE46D92A3BF4B700D88E4C /* SettingsView.swift */; };
 		2FAEF09D2A38CFFB007D12AA /* TravelAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAEF09C2A38CFFB007D12AA /* TravelAppApp.swift */; };
 		2FAEF0A12A38CFFC007D12AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FAEF0A02A38CFFC007D12AA /* Assets.xcassets */; };
 		2FAEF0A42A38CFFC007D12AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FAEF0A32A38CFFC007D12AA /* Preview Assets.xcassets */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		2FAE46D62A3BF22E00D88E4C /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		2FAE46D92A3BF4B700D88E4C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2FAEF0992A38CFFB007D12AA /* TravelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FAEF09C2A38CFFB007D12AA /* TravelAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelAppApp.swift; sourceTree = "<group>"; };
 		2FAEF0A02A38CFFC007D12AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -87,6 +89,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FAE46D82A3BF48C00D88E4C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				32272C2D2A38DFF000E9926B /* ProfileView.swift */,
+				2FAE46D92A3BF4B700D88E4C /* SettingsView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		2FAEF0902A38CFFB007D12AA = {
 			isa = PBXGroup;
 			children = (
@@ -150,7 +161,7 @@
 				32272C352A39D8DD00E9926B /* CustomTabView */,
 				32272C292A38DF7600E9926B /* MainView.swift */,
 				32272C2B2A38DFE100E9926B /* ExploreView.swift */,
-				32272C2D2A38DFF000E9926B /* ProfileView.swift */,
+				2FAE46D82A3BF48C00D88E4C /* Profile */,
 				32272C2F2A38E01D00E9926B /* MyTripsView.swift */,
 				32272C312A38E03400E9926B /* SearchView.swift */,
 			);
@@ -315,6 +326,7 @@
 				32272C392A39DAB800E9926B /* CustomTabView.swift in Sources */,
 				32272C322A38E03400E9926B /* SearchView.swift in Sources */,
 				2FAEF09D2A38CFFB007D12AA /* TravelAppApp.swift in Sources */,
+				2FAE46DA2A3BF4B700D88E4C /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
