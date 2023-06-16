@@ -14,23 +14,24 @@ struct CustomTabView<Content: View>: View {
     
     var body: some View {
         GeometryReader { geometry in
-            ZStack {
+            VStack {
                 TabView(selection: $selectedIndex) {
                     ForEach(tabs.indices, id: \.self) { index in
                         content(index)
                             .tag(index)
                     }
                 }
-                VStack {
-                    CustomBottomView(tabbarItems: tabs, selectedIndex: $selectedIndex)
-                }
+            }
+            VStack {
+                Spacer()
+                CustomBottomView(tabbarItems: tabs, selectedIndex: $selectedIndex)
             }
         }
     }
 }
 
 #Preview {
-    CustomTabView<ExploreView>(tabs: [TabType.home.tabItem],                      selectedIndex: .constant(0), content: { _ in
+    CustomTabView<ExploreView>(tabs: [TabType.home.tabItem],                      selectedIndex: .constant(TabType.home.rawValue), content: { _ in
         ExploreView()
     })
 }

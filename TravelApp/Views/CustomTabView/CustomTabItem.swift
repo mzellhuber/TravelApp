@@ -12,10 +12,16 @@ struct CustomTabItem: View {
     var isSelected: Bool = true
     
     var body: some View {
-        VStack {
-            Image(systemName: imageName)
-                .symbolEffect(.scale.up.byLayer, isActive: isSelected)
-                .foregroundColor(.purple)
+        GeometryReader { geometry in
+            VStack {
+                Image(systemName: imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 20, height: 20)
+                    .symbolEffect(.scale.up.byLayer, isActive: isSelected)
+                    .foregroundColor(.purple)
+            }
+            .frame(width: geometry.size.width, height: geometry.size.height)
         }
     }
 }
