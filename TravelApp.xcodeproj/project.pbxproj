@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2F4F434B2A4333F200F5421D /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F434A2A4333F200F5421D /* EditProfileView.swift */; };
+		2F4F434F2A4338EA00F5421D /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F434E2A4338EA00F5421D /* NetworkRequest.swift */; };
+		2F4F43512A433A1900F5421D /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F43502A433A1900F5421D /* NetworkClient.swift */; };
+		2F4F43532A433AEF00F5421D /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F43522A433AEF00F5421D /* NetworkError.swift */; };
+		2F4F43562A433B6000F5421D /* CountriesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F43552A433B6000F5421D /* CountriesRequest.swift */; };
+		2F4F43582A433BF300F5421D /* CountryFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F43572A433BF300F5421D /* CountryFetcher.swift */; };
+		2F4F435A2A434ED000F5421D /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F43592A434ED000F5421D /* Country.swift */; };
 		2FAE46D72A3BF22E00D88E4C /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE46D62A3BF22E00D88E4C /* Profile.swift */; };
 		2FAE46DA2A3BF4B700D88E4C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE46D92A3BF4B700D88E4C /* SettingsView.swift */; };
 		2FAEF09D2A38CFFB007D12AA /* TravelAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAEF09C2A38CFFB007D12AA /* TravelAppApp.swift */; };
@@ -45,6 +51,12 @@
 
 /* Begin PBXFileReference section */
 		2F4F434A2A4333F200F5421D /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		2F4F434E2A4338EA00F5421D /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		2F4F43502A433A1900F5421D /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		2F4F43522A433AEF00F5421D /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		2F4F43552A433B6000F5421D /* CountriesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesRequest.swift; sourceTree = "<group>"; };
+		2F4F43572A433BF300F5421D /* CountryFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryFetcher.swift; sourceTree = "<group>"; };
+		2F4F43592A434ED000F5421D /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		2FAE46D62A3BF22E00D88E4C /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		2FAE46D92A3BF4B700D88E4C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2FAEF0992A38CFFB007D12AA /* TravelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +103,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F4F434C2A4338BA00F5421D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2F4F434D2A4338CF00F5421D /* Network */,
+				2F4F43572A433BF300F5421D /* CountryFetcher.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2F4F434D2A4338CF00F5421D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2F4F43542A433B4800F5421D /* Countries */,
+				2F4F434E2A4338EA00F5421D /* NetworkRequest.swift */,
+				2F4F43502A433A1900F5421D /* NetworkClient.swift */,
+				2F4F43522A433AEF00F5421D /* NetworkError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		2F4F43542A433B4800F5421D /* Countries */ = {
+			isa = PBXGroup;
+			children = (
+				2F4F43552A433B6000F5421D /* CountriesRequest.swift */,
+			);
+			path = Countries;
+			sourceTree = "<group>";
+		};
 		2FAE46D82A3BF48C00D88E4C /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,11 +164,12 @@
 		2FAEF09B2A38CFFB007D12AA /* TravelApp */ = {
 			isa = PBXGroup;
 			children = (
-				2FAEF0C92A3A1C2C007D12AA /* Models */,
-				2FAEF0C82A3A1BF4007D12AA /* Views */,
-				2FAEF09C2A38CFFB007D12AA /* TravelAppApp.swift */,
 				2FAEF0A02A38CFFC007D12AA /* Assets.xcassets */,
+				2FAEF0C92A3A1C2C007D12AA /* Models */,
 				2FAEF0A22A38CFFC007D12AA /* Preview Content */,
+				2F4F434C2A4338BA00F5421D /* Services */,
+				2FAEF09C2A38CFFB007D12AA /* TravelAppApp.swift */,
+				2FAEF0C82A3A1BF4007D12AA /* Views */,
 			);
 			path = TravelApp;
 			sourceTree = "<group>";
@@ -175,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				2FAE46D62A3BF22E00D88E4C /* Profile.swift */,
+				2F4F43592A434ED000F5421D /* Country.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -319,16 +361,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F4F434F2A4338EA00F5421D /* NetworkRequest.swift in Sources */,
 				32272C2E2A38DFF000E9926B /* ProfileView.swift in Sources */,
 				2FAE46D72A3BF22E00D88E4C /* Profile.swift in Sources */,
 				32272C2A2A38DF7600E9926B /* MainView.swift in Sources */,
 				32272C342A39D82D00E9926B /* CustomTabItem.swift in Sources */,
 				32272C372A39D8ED00E9926B /* CustomBottomView.swift in Sources */,
+				2F4F43562A433B6000F5421D /* CountriesRequest.swift in Sources */,
 				32272C2C2A38DFE100E9926B /* ExploreView.swift in Sources */,
 				2F4F434B2A4333F200F5421D /* EditProfileView.swift in Sources */,
 				32272C302A38E01D00E9926B /* MyTripsView.swift in Sources */,
+				2F4F435A2A434ED000F5421D /* Country.swift in Sources */,
+				2F4F43532A433AEF00F5421D /* NetworkError.swift in Sources */,
 				32272C392A39DAB800E9926B /* CustomTabView.swift in Sources */,
 				32272C322A38E03400E9926B /* SearchView.swift in Sources */,
+				2F4F43512A433A1900F5421D /* NetworkClient.swift in Sources */,
+				2F4F43582A433BF300F5421D /* CountryFetcher.swift in Sources */,
 				2FAEF09D2A38CFFB007D12AA /* TravelAppApp.swift in Sources */,
 				2FAE46DA2A3BF4B700D88E4C /* SettingsView.swift in Sources */,
 			);
