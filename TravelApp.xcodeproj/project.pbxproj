@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F4F434B2A4333F200F5421D /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F434A2A4333F200F5421D /* EditProfileView.swift */; };
 		2FAE46D72A3BF22E00D88E4C /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE46D62A3BF22E00D88E4C /* Profile.swift */; };
 		2FAE46DA2A3BF4B700D88E4C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE46D92A3BF4B700D88E4C /* SettingsView.swift */; };
 		2FAEF09D2A38CFFB007D12AA /* TravelAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAEF09C2A38CFFB007D12AA /* TravelAppApp.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F4F434A2A4333F200F5421D /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		2FAE46D62A3BF22E00D88E4C /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		2FAE46D92A3BF4B700D88E4C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2FAEF0992A38CFFB007D12AA /* TravelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +96,7 @@
 			children = (
 				32272C2D2A38DFF000E9926B /* ProfileView.swift */,
 				2FAE46D92A3BF4B700D88E4C /* SettingsView.swift */,
+				2F4F434A2A4333F200F5421D /* EditProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				32272C342A39D82D00E9926B /* CustomTabItem.swift in Sources */,
 				32272C372A39D8ED00E9926B /* CustomBottomView.swift in Sources */,
 				32272C2C2A38DFE100E9926B /* ExploreView.swift in Sources */,
+				2F4F434B2A4333F200F5421D /* EditProfileView.swift in Sources */,
 				32272C302A38E01D00E9926B /* MyTripsView.swift in Sources */,
 				32272C392A39DAB800E9926B /* CustomTabView.swift in Sources */,
 				32272C322A38E03400E9926B /* SearchView.swift in Sources */,
