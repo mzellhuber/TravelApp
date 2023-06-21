@@ -1,24 +1,27 @@
+//
+//  ProfileView.swift
+//  TravelApp
+//
+//  Created by Melissa Zellhuber on 21/06/23.
+//
+
 import SwiftUI
 import os
 
 struct ProfileView: View {
-    @State private var userName: String = "John Doe"
-    @State private var userEmail: String = "user@example.com"
-    @State private var userImage: Image = Image(systemName: "person.crop.circle.fill")
-    @State private var bannerImage: Image = Image(systemName: "photo")
-    @State private var userLocation: String = "🇺🇸 San Francisco"
-    @State private var showSettingsView: Bool = false
+    @State private var profile: Profile? // Optional profile
     
-    private let logger = Logger(
-        subsystem: "Profile",
-        category: String(describing: ProfileView.self)
-    )
+    private let logger = Logger(subsystem: "Profile", category: String(describing: ProfileView.self))
+    
+    @State private var countries: [Country] = []
+    
+    private let countryFetcher = CountryFetcher()
     
     var body: some View {
         NavigationView {
             VStack {
                 ZStack(alignment: .bottomLeading) {
-                    bannerImage
+                    Image(systemName: "photo")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(height: 200)
@@ -26,7 +29,7 @@ struct ProfileView: View {
                         .edgesIgnoringSafeArea(.top)
                     
                     HStack {
-                        userImage
+                        Image(systemName: "person.crop.circle.fill")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 100, height: 100)
@@ -37,10 +40,7 @@ struct ProfileView: View {
                         
                         Spacer()
                         
-                        Button(action: {
-                            // Handle edit button action
-                            logger.debug("Edit button tapped!")
-                        }) {
+                        NavigationLink(destination: EditProfileView(profile: profile)) {
                             Image(systemName: "pencil")
                                 .font(.system(size: 20))
                                 .foregroundColor(.white)
@@ -52,16 +52,16 @@ struct ProfileView: View {
                     .padding(.trailing, 20)
                 }
                 
-                Text(userName)
+                Text(profile?.name ?? "Name Not Set")
                     .font(.largeTitle)
                     .fontWeight(.medium)
                     .padding(.top, 50)
                 
-                Text(userEmail)
+                Text(profile?.email ?? "Email Not Set")
                     .font(.title2)
                     .padding(.top, 10)
                 
-                Text(userLocation)
+                Text("\(profile?.city ?? "City Not Set"), \(profile?.country ?? "Country Not Set")")
                     .font(.title2)
                     .padding(.top, 10)
                 
@@ -69,27 +69,28 @@ struct ProfileView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing:
-                Button(action: {
-                    showSettingsView = true
-                    logger.debug("Gear icon tapped!")
-                }) {
-                    Image(systemName: "gearshape")
-                        .font(.system(size: 20))
-                        .foregroundColor(.purple)
-                        .padding()
-                        .background(Color.white)
-                        .clipShape(Circle())
-                }
-                .sheet(isPresented: $showSettingsView) {
-                    SettingsView()
-                }
+                                    Button(action: {
+                // Show settings view
+            }) {
+                Image(systemName: "gearshape")
+                    .font(.system(size: 20))
+                    .foregroundColor(.purple)
+                    .padding()
+                    .background(Color.white)
+                    .clipShape(Circle())
+            }
             )
         }
     }
+    
+    private func loadProfile() -> Profile {
+        // Load the profile from storage
+        // Return a default profile if none exists
+        // Example implementation:
+        return Profile()
+    }
 }
 
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
-    }
+#Preview {
+    ProfileView()
 }

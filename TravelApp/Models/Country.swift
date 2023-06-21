@@ -7,9 +7,17 @@
 
 import Foundation
 
-struct Country: Codable {
+struct Country: Codable, Hashable {
     let name: CountryName
     let cca3: String
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(cca3)
+    }
+
+    static func ==(lhs: Country, rhs: Country) -> Bool {
+        return lhs.cca3 == rhs.cca3
+    }
 }
 
 struct CountryName: Codable {
