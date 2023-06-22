@@ -12,29 +12,20 @@ struct CustomBottomView: View {
     @Binding var selectedIndex: Int
     
     var body: some View {
-        GeometryReader { geometry in
-            HStack {
-                ForEach(tabbarItems.indices, id: \.self) { index in
-                    let item = tabbarItems[index]
-                    VStack {
-                        Button {
-                            self.selectedIndex = index
-                        } label: {
-                            let isSelected = selectedIndex == index
-                            CustomTabItem(imageName: item.imageName, isSelected: isSelected)
-                                .frame(width: geometry.size.width/CGFloat(tabbarItems.count),
-                                       height: geometry.size.height,
-                                       alignment: .bottom)
-                        }
-                        Spacer()
-                    }
+        HStack {
+            ForEach(tabbarItems.indices, id: \.self) { index in
+                let item = tabbarItems[index]
+                Button {
+                    self.selectedIndex = index
+                } label: {
+                    let isSelected = selectedIndex == index
+                    CustomTabItem(imageName: item.imageName, isSelected: isSelected)
+                        .padding(.top)
                 }
             }
-            .frame(width: geometry.size.width,
-                   height: geometry.size.height,
-                   alignment: .bottom)
-            .background(Color.clear)
         }
+        .frame(maxHeight: 50)
+        .background(Color.clear)
     }
 }
 
