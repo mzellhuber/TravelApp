@@ -35,9 +35,7 @@ struct MainView: View {
                 MyTripsView()
             }
         case .profile:
-            NavigationView {
-                ProfileView()
-            }
+           ProfileView()
         }
     }
 }
