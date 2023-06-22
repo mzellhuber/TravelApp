@@ -49,6 +49,7 @@ struct EditProfileView: View {
                 }
                 Section(header: Text("Country")) {
                     Picker(selection: $selectedCountry, label: Text("Country")) {
+                        Text("None").tag(nil as Country?)
                         ForEach(countries, id: \.self) { country in
                             Text("\(country.emojiFlag) \(country.name.common)").tag(country as Country?)
                         }
