@@ -15,10 +15,10 @@ class Profile {
     var email: String?
     var city: String?
     var country: String?
-    var image: String? // This could be a URL or a name of a local image file
-    var bannerImage: String? // This could be a URL or a name of a local image file
+    var image: Data?
+    var bannerImage: Data?
     
-    init(id: UUID = UUID(), name: String? = nil, email: String? = nil, city: String? = nil, country: String? = nil, image: String? = nil, bannerImage: String? = nil) {
+    init(id: UUID = UUID(), name: String? = nil, email: String? = nil, city: String? = nil, country: String? = nil, image: Data? = nil, bannerImage: Data? = nil) {
         self.id = id
         self.name = name
         self.email = email

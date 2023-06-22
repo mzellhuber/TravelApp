@@ -13,21 +13,25 @@ struct EditProfileView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) private var presentationMode
     
-    @State private var profile: Profile?
+    @Binding var profile: Profile?
     @State private var name: String = ""
     @State private var email: String = ""
     @State private var city: String = ""
     @State private var selectedCountry: Country?
-    @State private var image: String = ""
-    @State private var bannerImage: String = ""
+    @State private var image: UIImage?
+    @State private var bannerImage: UIImage?
+    
+    @State private var showingImagePicker = false
+    @State private var inputImage: UIImage?
+    @State private var imageSourceType = UIImagePickerController.SourceType.photoLibrary
     
     @State private var countries: [Country] = []
     private let countryFetcher = CountryFetcher()
     
     private let logger = Logger(subsystem: "EditProfile", category: String(describing: EditProfileView.self))
     
-    init(profile: Profile? = nil) {
-        self._profile = State(initialValue: profile)
+    init(profile: Binding<Profile?>) {
+        self._profile = profile
     }
     
     var body: some View {
@@ -51,11 +55,18 @@ struct EditProfileView: View {
                     }
                 }
                 Section(header: Text("Profile Image")) {
-                    TextField("Profile Image", text: $image)
+                    ImageSelectionButton(image: image) { selectedImage in
+                        self.image = selectedImage
+                    }
                 }
                 Section(header: Text("Banner Image")) {
-                    TextField("Banner Image", text: $bannerImage)
+                    ImageSelectionButton(image: bannerImage) { selectedImage in
+                        self.bannerImage = selectedImage
+                    }
                 }
+            }
+            .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
+                ImagePicker(selectedImage: self.$inputImage, sourceType: self.imageSourceType)
             }
             .onAppear {
                 if let profile = profile {
@@ -65,8 +76,13 @@ struct EditProfileView: View {
                     if let countryCode = profile.country {
                         selectedCountry = countries.first { $0.cca3 == countryCode }
                     }
-                    image = profile.image ?? ""
-                    bannerImage = profile.bannerImage ?? ""
+                    // assuming 'imageData' and 'bannerImageData' are properties in 'Profile' that store the image data
+                    if let imageData = profile.image {
+                        image = UIImage(data: imageData)
+                    }
+                    if let bannerImageData = profile.bannerImage {
+                        bannerImage = UIImage(data: bannerImageData)
+                    }
                 }
                 fetchCountries()
             }
@@ -86,12 +102,20 @@ struct EditProfileView: View {
             profile.email = email
             profile.city = city
             profile.country = selectedCountry?.cca3
-            profile.image = image
-            profile.bannerImage = bannerImage
+            if let image = image {
+                profile.image = image.pngData()
+            }
+            if let bannerImage = bannerImage {
+                profile.bannerImage = bannerImage.pngData()
+            }
             
             // Save the updated profile to the persistent store
-            try? viewContext.save()
-            
+            do {
+                try viewContext.save()
+            } catch {
+                logger.error("Error saving the profile")
+            }
+            presentationMode.wrappedValue.dismiss()
         }
     }
     
@@ -114,8 +138,9 @@ struct EditProfileView: View {
             }
         }
     }
-}
-
-#Preview {
-    EditProfileView()
+    
+    func loadImage() {
+        guard let inputImage = inputImage else { return }
+        image = inputImage
+    }
 }

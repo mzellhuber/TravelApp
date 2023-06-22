@@ -7,9 +7,11 @@
 
 import SwiftUI
 import os
+import SwiftData
 
 struct ProfileView: View {
-    @State private var profile: Profile? // Optional profile
+    @Query var profiles: [Profile]  // Fetches all profiles
+    @State private var profile: Profile?  // State for the first profile
     
     private let logger = Logger(subsystem: "Profile", category: String(describing: ProfileView.self))
     
@@ -40,7 +42,7 @@ struct ProfileView: View {
                         
                         Spacer()
                         
-                        NavigationLink(destination: EditProfileView(profile: profile)) {
+                        NavigationLink(destination: EditProfileView(profile: $profile)) {
                             Image(systemName: "pencil")
                                 .font(.system(size: 20))
                                 .foregroundColor(.white)
@@ -80,14 +82,10 @@ struct ProfileView: View {
                     .clipShape(Circle())
             }
             )
+        }.onAppear {
+            // Set the initial value of `profile` when the view appears
+            profile = profiles.first
         }
-    }
-    
-    private func loadProfile() -> Profile {
-        // Load the profile from storage
-        // Return a default profile if none exists
-        // Example implementation:
-        return Profile()
     }
 }
 
