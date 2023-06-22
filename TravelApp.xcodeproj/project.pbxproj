@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2F4F434B2A4333F200F5421D /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F434A2A4333F200F5421D /* EditProfileView.swift */; };
 		2F4F434F2A4338EA00F5421D /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F434E2A4338EA00F5421D /* NetworkRequest.swift */; };
-		2F4F43512A433A1900F5421D /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F43502A433A1900F5421D /* NetworkClient.swift */; };
 		2F4F43532A433AEF00F5421D /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F43522A433AEF00F5421D /* NetworkError.swift */; };
 		2F4F43562A433B6000F5421D /* CountriesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F43552A433B6000F5421D /* CountriesRequest.swift */; };
 		2F4F43582A433BF300F5421D /* CountryFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F43572A433BF300F5421D /* CountryFetcher.swift */; };
@@ -54,7 +53,6 @@
 /* Begin PBXFileReference section */
 		2F4F434A2A4333F200F5421D /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		2F4F434E2A4338EA00F5421D /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
-		2F4F43502A433A1900F5421D /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		2F4F43522A433AEF00F5421D /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		2F4F43552A433B6000F5421D /* CountriesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesRequest.swift; sourceTree = "<group>"; };
 		2F4F43572A433BF300F5421D /* CountryFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryFetcher.swift; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 			children = (
 				2F4F43542A433B4800F5421D /* Countries */,
 				2F4F434E2A4338EA00F5421D /* NetworkRequest.swift */,
-				2F4F43502A433A1900F5421D /* NetworkClient.swift */,
 				2F4F43522A433AEF00F5421D /* NetworkError.swift */,
 			);
 			path = Network;
@@ -383,7 +380,6 @@
 				2F4F43532A433AEF00F5421D /* NetworkError.swift in Sources */,
 				32272C392A39DAB800E9926B /* CustomTabView.swift in Sources */,
 				32272C322A38E03400E9926B /* SearchView.swift in Sources */,
-				2F4F43512A433A1900F5421D /* NetworkClient.swift in Sources */,
 				2F4F43582A433BF300F5421D /* CountryFetcher.swift in Sources */,
 				2FAEF09D2A38CFFB007D12AA /* TravelAppApp.swift in Sources */,
 				2FAE46DA2A3BF4B700D88E4C /* SettingsView.swift in Sources */,

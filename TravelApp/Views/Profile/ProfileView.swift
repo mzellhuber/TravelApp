@@ -38,7 +38,7 @@ struct ProfileView: View {
                             .clipShape(Circle())
                             .overlay(Circle().stroke(Color.white, lineWidth: 4))
                             .shadow(radius: 10)
-                            .padding()
+                            .padding([.bottom, .leading], 40)
                         
                         Spacer()
                         
@@ -71,23 +71,25 @@ struct ProfileView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing:
-                                    Button(action: {
-                // Show settings view
-            }) {
-                Image(systemName: "gearshape")
-                    .font(.system(size: 20))
-                    .foregroundColor(.purple)
-                    .padding()
-                    .background(Color.white)
-                    .clipShape(Circle())
-            }
+                Button(action: {
+                    // Show settings view
+                }) {
+                    Image(systemName: "gearshape")
+                        .font(.system(size: 20))
+                        .foregroundColor(.purple)
+                        .padding()
+                        .background(Color.white)
+                        .clipShape(Circle())
+                }
             )
-        }.onAppear {
+        }
+        .onAppear {
             // Set the initial value of `profile` when the view appears
             profile = profiles.first
         }
     }
 }
+
 
 #Preview {
     ProfileView()

@@ -12,7 +12,7 @@ struct CountriesRequest: NetworkRequest {
     let path: String = "/v3.1/all"
     let method: HTTPMethod = .GET
     let queryItems: [URLQueryItem]? = [
-        URLQueryItem(name: "fields", value: "name,cca3")
+        URLQueryItem(name: "fields", value: "name,cca2")
     ]
     let headers: [String: String]? = nil
     let body: Data? = nil

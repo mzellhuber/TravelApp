@@ -75,7 +75,7 @@ struct EditProfileView: View {
                     email = profile.email ?? ""
                     city = profile.city ?? ""
                     if let countryCode = profile.country {
-                        selectedCountry = countries.first { $0.cca3 == countryCode }
+                        selectedCountry = countries.first { $0.cca2 == countryCode }
                     }
                     // assuming 'imageData' and 'bannerImageData' are properties in 'Profile' that store the image data
                     if let imageData = profile.image {
@@ -102,7 +102,7 @@ struct EditProfileView: View {
             profile.name = name
             profile.email = email
             profile.city = city
-            profile.country = selectedCountry?.cca3
+            profile.country = selectedCountry?.cca2
             if let image = image {
                 profile.image = image.pngData()
             }
@@ -123,7 +123,7 @@ struct EditProfileView: View {
     private func fetchCountries() {
         Task {
             do {
-                countries = try await countryFetcher.fetchCountries()
+                countries = try await countryFetcher.fetchCountries().sorted{ $0.name.common < $1.name.common }
             } catch {
                 switch error {
                 case NetworkError.invalidURL:
