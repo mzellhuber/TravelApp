@@ -10,10 +10,26 @@ import SwiftData
 
 @main
 struct TravelAppApp: App {
-
+    
+    @AppStorage("themePreference") var themePreference: String = "System"
+    
     var body: some Scene {
         WindowGroup {
-            MainView()
+            NavigationView {
+                MainView()
+                    .environment(\.colorScheme, colorScheme)
+            }
+        }
+    }
+    
+    private var colorScheme: ColorScheme {
+        switch themePreference {
+        case "Light":
+            return .light
+        case "Dark":
+            return .dark
+        default:
+            return .light
         }
     }
 }
