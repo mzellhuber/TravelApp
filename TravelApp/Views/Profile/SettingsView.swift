@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import os
 
 struct SettingsView: View {
     @State private var notificationsEnabled = true
@@ -14,7 +15,12 @@ struct SettingsView: View {
     @State private var isLoggedIn = false  // Simulate user login status
     
     @AppStorage("themePreference") var themePreference: String = "System"
-
+    
+    private let logger = Logger(
+        subsystem: "Profile",
+        category: String(describing: SettingsView.self)
+    )
+    
     var body: some View {
         NavigationView {
             Form {
