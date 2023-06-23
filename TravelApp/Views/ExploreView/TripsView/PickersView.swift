@@ -11,7 +11,7 @@ struct PickersView: View {
     var body: some View {
         ScrollView(.horizontal) {
             HStack {
-                ForEach(Picker.allCases, id: \.self) { picker in
+                ForEach(PickerType.allCases, id: \.self) { picker in
                     PickerView(picker: picker)
                 }
             }

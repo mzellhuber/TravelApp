@@ -1,13 +1,63 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@"
+          }
+        }
+      }
+    },
+    "%@, %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, %2$@"
+          }
+        }
+      }
+    },
     "Animate" : {
+
+    },
+    "Banner Image" : {
+
+    },
+    "Camera" : {
 
     },
     "Categories" : {
 
     },
+    "Celsius" : {
+
+    },
+    "City" : {
+
+    },
+    "Country" : {
+
+    },
+    "Dark" : {
+
+    },
+    "Edit Profile" : {
+
+    },
+    "Email" : {
+
+    },
+    "Enable Notifications" : {
+
+    },
     "Explore Cities" : {
+
+    },
+    "Fahrenheit" : {
 
     },
     "Hello, World!" : {
@@ -16,7 +66,49 @@
     "Hi, Mariam," : {
 
     },
+    "Light" : {
+
+    },
+    "Log In" : {
+
+    },
+    "Log Out" : {
+
+    },
+    "Name" : {
+
+    },
+    "None" : {
+
+    },
+    "Photo Library" : {
+
+    },
+    "Preferences" : {
+
+    },
+    "Profile Image" : {
+
+    },
+    "Save" : {
+
+    },
     "See all" : {
+
+    },
+    "Select Image" : {
+
+    },
+    "Settings" : {
+
+    },
+    "System" : {
+
+    },
+    "Temperature Units" : {
+
+    },
+    "Theme" : {
 
     },
     "Where do you want \nto go?" : {

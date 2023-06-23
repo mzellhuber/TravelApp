@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PickerView: View {
-    let picker: Picker
+    let picker: PickerType
     
     var body: some View {
         Button {
@@ -24,7 +24,7 @@ struct PickerView: View {
     PickerView(picker: .all)
 }
 
-enum Picker: String, CaseIterable {
+enum PickerType: String, CaseIterable {
     case all = "All"
     case popular = "Popular"
     case recommended = "Recommended"
