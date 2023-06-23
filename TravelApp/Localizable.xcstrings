@@ -1,0 +1,51 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Animate" : {
+
+    },
+    "Celsius" : {
+
+    },
+    "Dark" : {
+
+    },
+    "Enable Notifications" : {
+
+    },
+    "Fahrenheit" : {
+
+    },
+    "hello" : {
+
+    },
+    "Hello, World!" : {
+
+    },
+    "Light" : {
+
+    },
+    "Log In" : {
+
+    },
+    "Log Out" : {
+
+    },
+    "Preferences" : {
+
+    },
+    "Settings" : {
+
+    },
+    "System" : {
+
+    },
+    "Temperature Units" : {
+
+    },
+    "Theme" : {
+
+    }
+  },
+  "version" : "1.0"
+}

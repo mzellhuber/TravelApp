@@ -23,6 +23,7 @@
 		32272C342A39D82D00E9926B /* CustomTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32272C332A39D82D00E9926B /* CustomTabItem.swift */; };
 		32272C372A39D8ED00E9926B /* CustomBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32272C362A39D8ED00E9926B /* CustomBottomView.swift */; };
 		32272C392A39DAB800E9926B /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32272C382A39DAB800E9926B /* CustomTabView.swift */; };
+		32829FCC2A45C3CA00307D76 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 32829FCB2A45C3CA00307D76 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		32272C332A39D82D00E9926B /* CustomTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabItem.swift; sourceTree = "<group>"; };
 		32272C362A39D8ED00E9926B /* CustomBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBottomView.swift; sourceTree = "<group>"; };
 		32272C382A39DAB800E9926B /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
+		32829FCB2A45C3CA00307D76 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		2FAEF09B2A38CFFB007D12AA /* TravelApp */ = {
 			isa = PBXGroup;
 			children = (
+				32829FCB2A45C3CA00307D76 /* Localizable.xcstrings */,
 				2FAEF0C92A3A1C2C007D12AA /* Models */,
 				2FAEF0C82A3A1BF4007D12AA /* Views */,
 				2FAEF09C2A38CFFB007D12AA /* TravelAppApp.swift */,
@@ -292,6 +295,7 @@
 			files = (
 				2FAEF0A42A38CFFC007D12AA /* Preview Assets.xcassets in Resources */,
 				2FAEF0A12A38CFFC007D12AA /* Assets.xcassets in Resources */,
+				32829FCC2A45C3CA00307D76 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
