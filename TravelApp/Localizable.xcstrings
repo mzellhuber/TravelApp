@@ -4,46 +4,22 @@
     "Animate" : {
 
     },
-    "Celsius" : {
+    "Categories" : {
 
     },
-    "Dark" : {
-
-    },
-    "Enable Notifications" : {
-
-    },
-    "Fahrenheit" : {
-
-    },
-    "hello" : {
+    "Explore Cities" : {
 
     },
     "Hello, World!" : {
 
     },
-    "Light" : {
+    "Hi, Mariam," : {
 
     },
-    "Log In" : {
+    "See all" : {
 
     },
-    "Log Out" : {
-
-    },
-    "Preferences" : {
-
-    },
-    "Settings" : {
-
-    },
-    "System" : {
-
-    },
-    "Temperature Units" : {
-
-    },
-    "Theme" : {
+    "Where do you want \nto go?" : {
 
     }
   },
