@@ -11,7 +11,7 @@ struct TripsView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("Explore Cities")
+                Text("Explore Trips")
                     .font(.title)
                     .bold()
                 Spacer()

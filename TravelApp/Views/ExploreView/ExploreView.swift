@@ -22,6 +22,8 @@ struct ExploreView: View {
                             .lineLimit(2, reservesSpace: true)
                         Spacer()
                     }
+                    CustomSearchBar()
+                        .padding(.bottom)
                     TripsView()
                     CategoriesView()
                 }
@@ -45,6 +47,8 @@ struct ExploreView: View {
                 }
             }
             .background(.lightGrey)
+            .scrollClipDisabled()
+            .scrollIndicators(.hidden)
         }
     }
 }
