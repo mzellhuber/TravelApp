@@ -1,0 +1,122 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@"
+          }
+        }
+      }
+    },
+    "%@, %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, %2$@"
+          }
+        }
+      }
+    },
+    "Animate" : {
+
+    },
+    "Banner Image" : {
+
+    },
+    "Camera" : {
+
+    },
+    "Categories" : {
+
+    },
+    "Celsius" : {
+
+    },
+    "City" : {
+
+    },
+    "Country" : {
+
+    },
+    "Dark" : {
+
+    },
+    "Discover trip" : {
+
+    },
+    "Edit Profile" : {
+
+    },
+    "Email" : {
+
+    },
+    "Enable Notifications" : {
+
+    },
+    "Explore Trips" : {
+
+    },
+    "Fahrenheit" : {
+
+    },
+    "Hello, World!" : {
+
+    },
+    "Hi, Mariam," : {
+
+    },
+    "Light" : {
+
+    },
+    "Log In" : {
+
+    },
+    "Log Out" : {
+
+    },
+    "Name" : {
+
+    },
+    "None" : {
+
+    },
+    "Photo Library" : {
+
+    },
+    "Preferences" : {
+
+    },
+    "Profile Image" : {
+
+    },
+    "Save" : {
+
+    },
+    "See all" : {
+
+    },
+    "Select Image" : {
+
+    },
+    "Settings" : {
+
+    },
+    "System" : {
+
+    },
+    "Temperature Units" : {
+
+    },
+    "Theme" : {
+
+    },
+    "Where do you want \nto go?" : {
+
+    }
+  },
+  "version" : "1.0"
+}
