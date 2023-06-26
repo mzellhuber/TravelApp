@@ -23,7 +23,7 @@ struct MainView: View {
     func getTabView(type: TabType) -> some View {
         switch type {
         case .home:
-            ExploreView()
+            ExploreView(selectedIndex: $selectedIndex)
         case .search:
             NavigationView {
                 SearchView()

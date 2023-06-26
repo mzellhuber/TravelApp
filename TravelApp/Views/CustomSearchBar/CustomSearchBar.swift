@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct CustomSearchBar: View {
-    @State private var searchText = ""
+    @Binding var selectedIndex: Int
     
     var body: some View {
         HStack {
             Image(systemName: "magnifyingglass")
                 .foregroundColor(.gray)
-            TextField("Discover trip", text: $searchText)
+            TextField("Discover trip", text: .constant(""))
                 .font(Font.system(size: 21))
+                .onTapGesture {
+                    selectedIndex = TabType.search.rawValue
+                }
             Image(systemName: "slider.horizontal.3")
                 .foregroundColor(.gray)
         }
@@ -27,5 +30,5 @@ struct CustomSearchBar: View {
 }
 
 #Preview {
-    CustomSearchBar()
+    CustomSearchBar(selectedIndex: .constant(0))
 }
