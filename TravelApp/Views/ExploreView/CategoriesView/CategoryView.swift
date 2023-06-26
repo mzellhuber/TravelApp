@@ -46,8 +46,12 @@ enum Category: String, CaseIterable {
         switch self {
         case .mountains:
             return .mountains
-        default:
-            return .mountains
+        case .beach:
+            return .sea
+        case .camp:
+            return .camp
+        case .forest:
+            return .forest
         }
     }
 }
