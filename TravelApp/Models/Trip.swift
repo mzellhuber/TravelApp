@@ -7,7 +7,7 @@
 
 import DeveloperToolsSupport
 
-struct Trip {
+struct Trip: Hashable {
     let title: String
     let location: String
     let rating: String

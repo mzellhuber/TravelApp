@@ -21,20 +21,20 @@ enum FilterTab: String, CaseIterable {
                     .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains),
                     .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains)]
         case .popular:
-            return [.init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains),
-                    .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains),
-                    .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains)]
+            return [.init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .camp),
+                    .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .camp),
+                    .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .camp)]
         case .recommended:
-            return [.init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains),
-                    .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains),
-                    .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains)]
+            return [.init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .forest),
+                    .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .forest),
+                    .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .forest)]
         case .mostViews:
             return [.init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains),
                     .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains),
                     .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains)]
         case .recent:
-            return [.init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains),
-                    .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains),
+            return [.init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .camp),
+                    .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .camp),
                     .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains)]
         }
     }

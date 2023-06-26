@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct FilterTabsView: View {
-    @State var selectedTab: FilterTab = .all
+    var selectedTab: Binding<FilterTab>
     
     var body: some View {
         ScrollView(.horizontal) {
             HStack {
                 ForEach(FilterTab.allCases, id: \.self) { tab in
-                    FilterTabView(tab: tab, selectedTab: $selectedTab)
+                    FilterTabView(tab: tab, selectedTab: selectedTab)
                 }
             }
         }
@@ -24,5 +24,5 @@ struct FilterTabsView: View {
 }
 
 #Preview {
-    FilterTabsView()
+    FilterTabsView(selectedTab: .constant(.all))
 }

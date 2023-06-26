@@ -18,11 +18,13 @@ struct TripsView: View {
                     .bold()
                 Spacer()
             }
-            FilterTabsView()
+            FilterTabsView(selectedTab: $selectedTab)
                 .padding(.bottom)
             ScrollView(.horizontal) {
                 HStack(spacing: 20) {
-                    TripView(trip: .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains))
+                    ForEach(selectedTab.trips, id: \.self) { trip in
+                        TripView(trip: trip)
+                    }
                 }
             }
             .scrollClipDisabled()
