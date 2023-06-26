@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct PickersView: View {
+    @State var selectedPicker: PickerType = .all
+    
     var body: some View {
         ScrollView(.horizontal) {
             HStack {
                 ForEach(PickerType.allCases, id: \.self) { picker in
-                    PickerView(picker: picker)
+                    PickerView(picker: picker, selectedPicker: $selectedPicker)
                 }
             }
         }
