@@ -8,15 +8,12 @@
 import SwiftUI
 
 struct TripView: View {
-    let title: String
-    let location: String
-    let rating: String
-    let imageName: ImageResource
+    let trip: Trip
     
     var body: some View {
         VStack {
             ZStack {
-                Image(imageName)
+                Image(trip.imageName)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 195, height: 195)
@@ -25,15 +22,15 @@ struct TripView: View {
                     VStack {
                         VStack {
                             HStack {
-                                Text(title)
+                                Text(trip.title)
                                     .font(.caption)
                                     .bold()
                                 Spacer()
                             }
                             .padding(.bottom, 2)
                             HStack {
-                                Text(location)
-                                Text(rating)
+                                Text(trip.location)
+                                Text(trip.rating)
                                 Spacer()
                             }
                             .font(.caption2)
@@ -58,5 +55,5 @@ struct TripView: View {
 }
 
 #Preview {
-    TripView(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains)
+    TripView(trip: .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains))
 }

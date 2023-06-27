@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TripsView: View {
+    @State var selectedTab: FilterTab = .all
+    
     var body: some View {
         VStack {
             HStack {
@@ -16,14 +18,13 @@ struct TripsView: View {
                     .bold()
                 Spacer()
             }
-            PickersView()
+            FilterTabsView(selectedTab: $selectedTab)
                 .padding(.bottom)
             ScrollView(.horizontal) {
                 HStack(spacing: 20) {
-                    TripView(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains)
-                    TripView(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains)
-                    TripView(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains)
-                    TripView(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains)
+                    ForEach(selectedTab.trips, id: \.self) { trip in
+                        TripView(trip: trip)
+                    }
                 }
             }
             .scrollClipDisabled()

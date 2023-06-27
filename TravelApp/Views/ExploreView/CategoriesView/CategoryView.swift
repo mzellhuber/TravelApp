@@ -35,19 +35,3 @@ struct CategoryView: View {
 #Preview {
     CategoryView(category: .mountains)
 }
-
-enum Category: String, CaseIterable {
-    case mountains = "Mountains"
-    case camp = "Camp"
-    case beach = "Beach"
-    case forest = "Forest"
-    
-    var image: ImageResource {
-        switch self {
-        case .mountains:
-            return .mountains
-        default:
-            return .mountains
-        }
-    }
-}
