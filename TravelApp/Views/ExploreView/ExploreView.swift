@@ -23,7 +23,7 @@ struct ExploreView: View {
                             .lineLimit(2, reservesSpace: true)
                         Spacer()
                     }
-                    CustomSearchBar(selectedIndex: selectedIndex)
+                    CustomSearchBar(selectedIndex: selectedIndex, searchText: .constant(""))
                         .padding(.bottom)
                     TripsView()
                     CategoriesView()

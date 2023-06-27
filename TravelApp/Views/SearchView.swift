@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct SearchView: View {
+    @State var searchText = ""
+    var searching = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack {
+                CustomSearchBar(selectedIndex: .constant(TabType.search.rawValue), searchText: $searchText, isActive: true)
+                Spacer()
+            }
+            .navigationTitle("Search")
+            .navigationBarTitleDisplayMode(.large)
+            .padding(.leading, 20)
+            .padding(.trailing, 20)
+        }
     }
 }
 
