@@ -10,7 +10,7 @@ import SwiftUI
 struct ExploreView: View {
     @State private var searchText: String = ""
     @State private var searchIsActive = false
-    var selectedIndex: Binding<Int>
+    @Binding var selectedIndex: Int
     
     var body: some View {
         NavigationStack {
@@ -23,7 +23,10 @@ struct ExploreView: View {
                             .lineLimit(2, reservesSpace: true)
                         Spacer()
                     }
-                    CustomSearchBar(selectedIndex: selectedIndex, searchText: .constant(""))
+                    CustomSearchBar(searchText: .constant(""))
+                        .onTapGesture {
+                            selectedIndex = TabType.search.rawValue
+                        }
                         .padding(.bottom)
                     TripsView()
                     CategoriesView()

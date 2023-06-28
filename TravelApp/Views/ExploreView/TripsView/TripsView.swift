@@ -23,7 +23,7 @@ struct TripsView: View {
             ScrollView(.horizontal) {
                 HStack(spacing: 20) {
                     ForEach(selectedTab.trips, id: \.self) { trip in
-                        TripView(trip: trip)
+                        TripView(trip: trip, dimension: 200)
                     }
                 }
             }

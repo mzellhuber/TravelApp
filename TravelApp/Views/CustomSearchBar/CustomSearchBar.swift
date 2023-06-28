@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct CustomSearchBar: View {
-    @Binding var selectedIndex: Int
-    @FocusState var focused
     @Binding var searchText: String
-    var isActive: Bool = false
+    @FocusState var isFocused
+    var isActive = false
     
     var body: some View {
         HStack {
@@ -19,11 +18,10 @@ struct CustomSearchBar: View {
                 .foregroundColor(.gray)
             TextField("Discover trip", text: $searchText)
                 .font(Font.system(size: 21))
-                .focused($focused)
-                .onTapGesture {
-                    if selectedIndex == TabType.home.rawValue {
-                        selectedIndex = TabType.search.rawValue
-                    }
+                .focused($isFocused)
+                .onAppear {
+                    UITextField.appearance().clearButtonMode = .whileEditing
+                    isFocused = isActive
                 }
             Image(systemName: "slider.horizontal.3")
                 .foregroundColor(.gray)
@@ -32,12 +30,9 @@ struct CustomSearchBar: View {
         .background(.white)
         .cornerRadius(10)
         .shadow(color: .gray.opacity(0.2), radius: 10)
-        .onAppear {
-            focused = isActive
-        }
     }
 }
 
 #Preview {
-    CustomSearchBar(selectedIndex: .constant(0), searchText: .constant(""))
+    CustomSearchBar(searchText: .constant(""))
 }

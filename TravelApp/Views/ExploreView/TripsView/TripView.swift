@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TripView: View {
     let trip: Trip
+    let dimension: CGFloat
     
     var body: some View {
         VStack {
@@ -16,7 +17,7 @@ struct TripView: View {
                 Image(trip.imageName)
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 195, height: 195)
+                    .frame(width: dimension - 5, height: dimension - 5)
                 VStack {
                     Spacer()
                     VStack {
@@ -49,11 +50,11 @@ struct TripView: View {
         }
         .background(.white)
         .cornerRadius(10)
-        .frame(width: 200, height: 200)
+        .frame(width: dimension, height: dimension)
         .shadow(color: .gray.opacity(0.2), radius: 10)
     }
 }
 
-#Preview {
-    TripView(trip: .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains))
-}
+//#Preview {
+//    TripView(trip: .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains))
+//}

@@ -25,7 +25,7 @@ struct MainView: View {
         case .home:
             ExploreView(selectedIndex: $selectedIndex)
         case .search:
-            SearchView(searching: selectedIndex == type.rawValue)
+            SearchView()
         case .myTrips:
             NavigationView {
                 MyTripsView()
