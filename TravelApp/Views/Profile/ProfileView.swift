@@ -19,6 +19,8 @@ struct ProfileView: View {
     
     private let countryFetcher = CountryFetcher()
     
+    @State private var isShowingSheet = false
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -71,8 +73,10 @@ struct ProfileView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing:
+                                    HStack {
                 Button(action: {
-                    // Show settings view
+                    // Show settings sheet
+                    self.isShowingSheet = true
                 }) {
                     Image(systemName: "gearshape")
                         .font(.system(size: 20))
@@ -81,7 +85,11 @@ struct ProfileView: View {
                         .background(Color.white)
                         .clipShape(Circle())
                 }
+            }
             )
+            .sheet(isPresented: $isShowingSheet) {
+                SettingsView()
+            }
         }
         .onAppear {
             // Set the initial value of `profile` when the view appears
@@ -89,7 +97,6 @@ struct ProfileView: View {
         }
     }
 }
-
 
 #Preview {
     ProfileView()
