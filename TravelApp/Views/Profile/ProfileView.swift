@@ -19,30 +19,53 @@ struct ProfileView: View {
     
     private let countryFetcher = CountryFetcher()
     
+    @State private var isShowingSheet = false
+    
+    @Environment(\.modelContext) private var modelContext
     var body: some View {
         NavigationView {
             VStack {
                 ZStack(alignment: .bottomLeading) {
-                    Image(systemName: "photo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(height: 200)
-                        .clipped()
-                        .edgesIgnoringSafeArea(.top)
+                    if let bannerImageData = profile?.bannerImage, let bannerImage = UIImage(data: bannerImageData) {
+                        Image(uiImage: bannerImage)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(height: 200)
+                            .clipped()
+                            .edgesIgnoringSafeArea(.top)
+                    } else {
+                        Image(systemName: "photo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(height: 200)
+                            .clipped()
+                            .edgesIgnoringSafeArea(.top)
+                    }
                     
                     HStack {
-                        Image(systemName: "person.crop.circle.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 100, height: 100)
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(Color.white, lineWidth: 4))
-                            .shadow(radius: 10)
-                            .padding([.bottom, .leading], 40)
+                        if let imageData = profile?.image, let image = UIImage(data: imageData) {
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                                .shadow(radius: 10)
+                                .padding([.bottom, .leading], 40)
+                        } else {
+                            Image(systemName: "person.crop.circle.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                                .shadow(radius: 10)
+                                .padding([.bottom, .leading], 40)
+                        }
                         
                         Spacer()
                         
-                        NavigationLink(destination: EditProfileView(profile: $profile)) {
+                        NavigationLink(destination: EditProfileView(profile: $profile.toUnwrapped(defaultValue: Profile()))) {
                             Image(systemName: "pencil")
                                 .font(.system(size: 20))
                                 .foregroundColor(.white)
@@ -71,8 +94,10 @@ struct ProfileView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing:
+                                    HStack {
                 Button(action: {
-                    // Show settings view
+                    // Show settings sheet
+                    self.isShowingSheet = true
                 }) {
                     Image(systemName: "gearshape")
                         .font(.system(size: 20))
@@ -81,16 +106,23 @@ struct ProfileView: View {
                         .background(Color.white)
                         .clipShape(Circle())
                 }
+            }
             )
+            .sheet(isPresented: $isShowingSheet) {
+                SettingsView()
+            }
         }
         .onAppear {
-            // Set the initial value of `profile` when the view appears
-            profile = profiles.first
+            setProfile()
         }
     }
-}
-
-
-#Preview {
-    ProfileView()
+    
+    func setProfile () {
+        if let firstProfile = profiles.first {
+            profile = firstProfile
+        } else {
+            profile = Profile()
+            modelContext.insert(profile!)
+        }
+    }
 }
