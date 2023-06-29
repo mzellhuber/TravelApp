@@ -32,7 +32,7 @@ struct CustomTabView<Content: View>: View {
 
 #Preview {
     CustomTabView<ExploreView>(tabs: [TabType.home.tabItem],                      selectedIndex: .constant(TabType.home.rawValue), content: { _ in
-        ExploreView()
+        ExploreView(selectedIndex: .constant(0))
     })
 }
 
