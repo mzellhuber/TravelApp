@@ -37,6 +37,7 @@ struct TripView: View {
                                 }
                                 .font(.caption2)
                             }
+                            .foregroundColor(.black)
                             .padding(10)
                         }
                         .background(.white.opacity(0.6))

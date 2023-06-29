@@ -17,19 +17,14 @@ struct TripDetailView: View {
                     .resizable()
                     .scaledToFill()
                     .ignoresSafeArea()
-                    .frame(width: geo.size.width, height: geo.size.height/2)
-                VStack {
-                    Spacer()
-                    HStack {
-                        Text("asdasd")
-                        Spacer()
-                    }
-                    Spacer()
-                }
-                .background(.white)
-                .cornerRadius(40)
-                .padding(.top, -60)
-                .ignoresSafeArea()
+                    .frame(width: geo.size.width, height: geo.size.height * 2/3, alignment: .center)
+            }
+            .sheet(isPresented: .constant(true)) {
+                InfoView()
+                    .presentationCornerRadius(40)
+                    .presentationDetents([.medium, .large])
+                    .interactiveDismissDisabled()
+                    .presentationBackgroundInteraction(.enabled)
             }
         }
         .navigationBarBackButtonHidden(true)
