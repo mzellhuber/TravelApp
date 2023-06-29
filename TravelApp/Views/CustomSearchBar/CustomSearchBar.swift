@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct CustomSearchBar: View {
-    @State private var searchText = ""
+    @Binding var searchText: String
+    @FocusState var isFocused
+    var isActive = false
     
     var body: some View {
         HStack {
@@ -16,6 +18,11 @@ struct CustomSearchBar: View {
                 .foregroundColor(.gray)
             TextField("Discover trip", text: $searchText)
                 .font(Font.system(size: 21))
+                .focused($isFocused)
+                .onAppear {
+                    UITextField.appearance().clearButtonMode = .whileEditing
+                    isFocused = isActive
+                }
             Image(systemName: "slider.horizontal.3")
                 .foregroundColor(.gray)
         }
@@ -27,5 +34,5 @@ struct CustomSearchBar: View {
 }
 
 #Preview {
-    CustomSearchBar()
+    CustomSearchBar(searchText: .constant(""))
 }
