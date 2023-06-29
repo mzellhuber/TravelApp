@@ -12,8 +12,9 @@ import os
 struct EditProfileView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) private var presentationMode
-    
-    @Binding var profile: Profile?
+    @Environment(\.modelContext) private var modelContext
+
+    @Binding var profile: Profile
     @State private var name: String = ""
     @State private var email: String = ""
     @State private var city: String = ""
@@ -30,8 +31,9 @@ struct EditProfileView: View {
     
     private let logger = Logger(subsystem: "EditProfile", category: String(describing: EditProfileView.self))
     
-    init(profile: Binding<Profile?>) {
+    init(profile: Binding<Profile>) {
         self._profile = profile
+        print("Profile in initializer: \(String(describing: profile.wrappedValue))")
     }
     
     var body: some View {
@@ -70,21 +72,19 @@ struct EditProfileView: View {
                 ImagePicker(selectedImage: self.$inputImage, sourceType: self.imageSourceType)
             }
             .onAppear {
-                if let profile = profile {
-                    name = profile.name ?? ""
-                    email = profile.email ?? ""
-                    city = profile.city ?? ""
-                    if let countryCode = profile.country {
-                        selectedCountry = countries.first { $0.cca2 == countryCode }
-                    }
-                    // assuming 'imageData' and 'bannerImageData' are properties in 'Profile' that store the image data
-                    if let imageData = profile.image {
-                        image = UIImage(data: imageData)
-                    }
-                    if let bannerImageData = profile.bannerImage {
-                        bannerImage = UIImage(data: bannerImageData)
-                    }
+                name = profile.name ?? ""
+                email = profile.email ?? ""
+                city = profile.city ?? ""
+                if let countryCode = profile.country {
+                    selectedCountry = countries.first { $0.cca2 == countryCode }
                 }
+                if let imageData = profile.image {
+                    image = UIImage(data: imageData)
+                }
+                if let bannerImageData = profile.bannerImage {
+                    bannerImage = UIImage(data: bannerImageData)
+                }
+
                 fetchCountries()
             }
             .navigationBarTitle(Text("Edit Profile"), displayMode: .inline)
@@ -98,26 +98,27 @@ struct EditProfileView: View {
     }
     
     func updateProfile() {
-        if let profile = profile {
-            profile.name = name
-            profile.email = email
-            profile.city = city
-            profile.country = selectedCountry?.cca2
-            if let image = image {
-                profile.image = image.pngData()
-            }
-            if let bannerImage = bannerImage {
-                profile.bannerImage = bannerImage.pngData()
-            }
-            
-            // Save the updated profile to the persistent store
-            do {
-                try viewContext.save()
-            } catch {
-                logger.error("Error saving the profile")
-            }
-            presentationMode.wrappedValue.dismiss()
+        print("Profile in updateProfile: \(String(describing: profile))")
+        
+        profile.name = name
+        profile.email = email
+        profile.city = city
+        profile.country = selectedCountry?.cca2
+        if let image = image {
+            profile.image = image.pngData()
         }
+        if let bannerImage = bannerImage {
+            profile.bannerImage = bannerImage.pngData()
+        }
+        
+        // Save the updated profile to the persistent store
+        do {
+            try viewContext.save()
+        } catch {
+            logger.error("Error saving the profile")
+        }
+        presentationMode.wrappedValue.dismiss()
+        
     }
     
     private func fetchCountries() {

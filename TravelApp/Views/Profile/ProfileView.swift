@@ -21,6 +21,7 @@ struct ProfileView: View {
     
     @State private var isShowingSheet = false
     
+    @Environment(\.modelContext) private var modelContext
     var body: some View {
         NavigationView {
             VStack {
@@ -44,7 +45,7 @@ struct ProfileView: View {
                         
                         Spacer()
                         
-                        NavigationLink(destination: EditProfileView(profile: $profile)) {
+                        NavigationLink(destination: EditProfileView(profile: $profile.toUnwrapped(defaultValue: Profile()))) {
                             Image(systemName: "pencil")
                                 .font(.system(size: 20))
                                 .foregroundColor(.white)
@@ -92,12 +93,16 @@ struct ProfileView: View {
             }
         }
         .onAppear {
-            // Set the initial value of `profile` when the view appears
-            profile = profiles.first
+            setProfile()
         }
     }
-}
-
-#Preview {
-    ProfileView()
+    
+    func setProfile () {
+        if let firstProfile = profiles.first {
+            profile = firstProfile
+        } else {
+            profile = Profile()
+            modelContext.insert(profile!)
+        }
+    }
 }

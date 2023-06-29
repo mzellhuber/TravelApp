@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct MainView: View {
     @State var selectedIndex: Int = 0
     
