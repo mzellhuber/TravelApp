@@ -13,7 +13,7 @@ struct EditProfileView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) private var presentationMode
     @Environment(\.modelContext) private var modelContext
-
+    
     @Binding var profile: Profile
     @State private var name: String = ""
     @State private var email: String = ""
@@ -44,6 +44,7 @@ struct EditProfileView: View {
                 }
                 Section(header: Text("Email")) {
                     TextField("Email", text: $email)
+                        .textContentType(.emailAddress)
                         .keyboardType(.emailAddress)
                 }
                 Section(header: Text("City")) {
@@ -84,7 +85,7 @@ struct EditProfileView: View {
                 if let bannerImageData = profile.bannerImage {
                     bannerImage = UIImage(data: bannerImageData)
                 }
-
+                
                 fetchCountries()
             }
             .navigationBarTitle(Text("Edit Profile"), displayMode: .inline)
@@ -125,6 +126,9 @@ struct EditProfileView: View {
         Task {
             do {
                 countries = try await countryFetcher.fetchCountries().sorted{ $0.name.common < $1.name.common }
+                if let countryCode = profile.country {
+                    selectedCountry = countries.first { $0.cca2 == countryCode }
+                }
             } catch {
                 switch error {
                 case NetworkError.invalidURL:
