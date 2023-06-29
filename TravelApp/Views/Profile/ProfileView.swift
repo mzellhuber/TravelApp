@@ -26,22 +26,42 @@ struct ProfileView: View {
         NavigationView {
             VStack {
                 ZStack(alignment: .bottomLeading) {
-                    Image(systemName: "photo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(height: 200)
-                        .clipped()
-                        .edgesIgnoringSafeArea(.top)
+                    if let bannerImageData = profile?.bannerImage, let bannerImage = UIImage(data: bannerImageData) {
+                        Image(uiImage: bannerImage)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(height: 200)
+                            .clipped()
+                            .edgesIgnoringSafeArea(.top)
+                    } else {
+                        Image(systemName: "photo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(height: 200)
+                            .clipped()
+                            .edgesIgnoringSafeArea(.top)
+                    }
                     
                     HStack {
-                        Image(systemName: "person.crop.circle.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 100, height: 100)
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(Color.white, lineWidth: 4))
-                            .shadow(radius: 10)
-                            .padding([.bottom, .leading], 40)
+                        if let imageData = profile?.image, let image = UIImage(data: imageData) {
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                                .shadow(radius: 10)
+                                .padding([.bottom, .leading], 40)
+                        } else {
+                            Image(systemName: "person.crop.circle.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                                .shadow(radius: 10)
+                                .padding([.bottom, .leading], 40)
+                        }
                         
                         Spacer()
                         
