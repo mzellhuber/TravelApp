@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct InfoView: View {
+    let trip: Trip
+    
     var body: some View {
         ScrollView(.vertical) {
             VStack {
                 HStack {
-                    Text("Avenada Logo")
+                    Text(trip.title)
                         .font(.title)
                         .bold()
                     Spacer()
@@ -20,10 +22,10 @@ struct InfoView: View {
                 .padding(.top, 20)
                 HStack {
                     Image(systemName: "mappin.circle.fill")
-                    Text("Thailand")
+                    Text(trip.location)
                     Spacer()
                     Image(systemName: "star")
-                    Text("4,9")
+                    Text(trip.rating)
                 }
                 .padding([.top, .bottom], 10)
                 .foregroundColor(.gray)
@@ -54,5 +56,5 @@ struct InfoView: View {
 }
 
 #Preview {
-    InfoView()
+    InfoView(trip: .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: ImageResource(name: "mountains", bundle: Bundle.main)))
 }

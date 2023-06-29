@@ -9,18 +9,19 @@ import SwiftUI
 
 struct TripDetailView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    let trip: Trip
     
     var body: some View {
         GeometryReader { geo in
             VStack {
-                Image(.mountains)
+                Image(trip.imageName)
                     .resizable()
                     .scaledToFill()
                     .ignoresSafeArea()
                     .frame(width: geo.size.width, height: geo.size.height * 2/3, alignment: .center)
             }
             .sheet(isPresented: .constant(true)) {
-                InfoView()
+                InfoView(trip: trip)
                     .presentationCornerRadius(40)
                     .presentationDetents([.medium, .large])
                     .interactiveDismissDisabled()
@@ -43,5 +44,5 @@ struct TripDetailView: View {
 }
 
 #Preview {
-    TripDetailView()
+    TripDetailView(trip: .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: ImageResource(name: "mountains", bundle: Bundle.main)))
 }

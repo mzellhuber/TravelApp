@@ -56,11 +56,11 @@ struct TripView: View {
             .shadow(color: .gray.opacity(0.2), radius: 10)
         }
         .navigationDestination(for: Trip.self, destination: { trip in
-            TripDetailView()
+            TripDetailView(trip: trip)
         })
     }
 }
 
-//#Preview {
-//    TripView(trip: .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains))
-//}
+#Preview {
+    TripView(trip: .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: ImageResource(name: "mountains", bundle: Bundle.main)), dimension: 200)
+}
