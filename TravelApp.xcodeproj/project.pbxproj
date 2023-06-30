@@ -33,6 +33,8 @@
 		32272C372A39D8ED00E9926B /* CustomBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32272C362A39D8ED00E9926B /* CustomBottomView.swift */; };
 		32272C392A39DAB800E9926B /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32272C382A39DAB800E9926B /* CustomTabView.swift */; };
 		323F8B6D2A45E04000FE004D /* TripsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323F8B6C2A45E04000FE004D /* TripsView.swift */; };
+		325F78A72A4DC50D0088B45C /* TripDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325F78A62A4DC50D0088B45C /* TripDetailView.swift */; };
+		325F78A92A4DE59B0088B45C /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325F78A82A4DE59B0088B45C /* InfoView.swift */; };
 		32829FCC2A45C3CA00307D76 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 32829FCB2A45C3CA00307D76 /* Localizable.xcstrings */; };
 		32829FCF2A45CCCD00307D76 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32829FCE2A45CCCD00307D76 /* CategoryView.swift */; };
 		32829FD12A45D5B500307D76 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32829FD02A45D5B500307D76 /* CategoriesView.swift */; };
@@ -92,6 +94,8 @@
 		32272C362A39D8ED00E9926B /* CustomBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBottomView.swift; sourceTree = "<group>"; };
 		32272C382A39DAB800E9926B /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		323F8B6C2A45E04000FE004D /* TripsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsView.swift; sourceTree = "<group>"; };
+		325F78A62A4DC50D0088B45C /* TripDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailView.swift; sourceTree = "<group>"; };
+		325F78A82A4DE59B0088B45C /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		32829FCB2A45C3CA00307D76 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		32829FCE2A45CCCD00307D76 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		32829FD02A45D5B500307D76 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
@@ -229,14 +233,14 @@
 		2FAEF0C82A3A1BF4007D12AA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				32E43B762A45E67300AE7E55 /* CustomSearchBar */,
-				32272C352A39D8DD00E9926B /* CustomTabView */,
-				2F4F435B2A43AD2F00F5421D /* ImagePicker.swift */,
-				32829FD82A45D94600307D76 /* ExploreView */,
+				325F78A22A4DC4890088B45C /* CommonViews */,
 				32272C292A38DF7600E9926B /* MainView.swift */,
+				325F78A12A4DC47B0088B45C /* TripView */,
+				325F78A32A4DC4D50088B45C /* TripDetailView */,
+				32829FD82A45D94600307D76 /* ExploreView */,
+				32272C312A38E03400E9926B /* SearchView.swift */,
 				2FAE46D82A3BF48C00D88E4C /* Profile */,
 				32272C2F2A38E01D00E9926B /* MyTripsView.swift */,
-				32272C312A38E03400E9926B /* SearchView.swift */,
 				2F4F435D2A43B32A00F5421D /* ImageSelectionButton.swift */,
 			);
 			path = Views;
@@ -272,6 +276,33 @@
 			path = CustomTabView;
 			sourceTree = "<group>";
 		};
+		325F78A12A4DC47B0088B45C /* TripView */ = {
+			isa = PBXGroup;
+			children = (
+				32829FD92A45D9F600307D76 /* TripView.swift */,
+			);
+			path = TripView;
+			sourceTree = "<group>";
+		};
+		325F78A22A4DC4890088B45C /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+				32272C352A39D8DD00E9926B /* CustomTabView */,
+				32E43B762A45E67300AE7E55 /* CustomSearchBar */,
+				2F4F435B2A43AD2F00F5421D /* ImagePicker.swift */,
+			);
+			path = CommonViews;
+			sourceTree = "<group>";
+		};
+		325F78A32A4DC4D50088B45C /* TripDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				325F78A62A4DC50D0088B45C /* TripDetailView.swift */,
+				325F78A82A4DE59B0088B45C /* InfoView.swift */,
+			);
+			path = TripDetailView;
+			sourceTree = "<group>";
+		};
 		32829FCD2A45CCB700307D76 /* CategoriesView */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,7 +317,6 @@
 			children = (
 				32829FD42A45D8A500307D76 /* FIlterTabView.swift */,
 				32829FD62A45D93C00307D76 /* FilterTabsView.swift */,
-				32829FD92A45D9F600307D76 /* TripView.swift */,
 				323F8B6C2A45E04000FE004D /* TripsView.swift */,
 			);
 			path = TripsView;
@@ -445,6 +475,7 @@
 				32272C2E2A38DFF000E9926B /* ProfileView.swift in Sources */,
 				2F4F435E2A43B32A00F5421D /* ImageSelectionButton.swift in Sources */,
 				2FAE46D72A3BF22E00D88E4C /* Profile.swift in Sources */,
+				325F78A92A4DE59B0088B45C /* InfoView.swift in Sources */,
 				32829FCF2A45CCCD00307D76 /* CategoryView.swift in Sources */,
 				32272C2A2A38DF7600E9926B /* MainView.swift in Sources */,
 				32272C342A39D82D00E9926B /* CustomTabItem.swift in Sources */,
@@ -461,6 +492,7 @@
 				2F4F434B2A4333F200F5421D /* EditProfileView.swift in Sources */,
 				32272C302A38E01D00E9926B /* MyTripsView.swift in Sources */,
 				2F4F435A2A434ED000F5421D /* Country.swift in Sources */,
+				325F78A72A4DC50D0088B45C /* TripDetailView.swift in Sources */,
 				2F4F43532A433AEF00F5421D /* NetworkError.swift in Sources */,
 				32272C392A39DAB800E9926B /* CustomTabView.swift in Sources */,
 				2FE3AE6F2A4DC19C0095E682 /* Extensions.swift in Sources */,
