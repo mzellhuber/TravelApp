@@ -12,7 +12,7 @@ struct TripView: View {
     let dimension: CGFloat
     
     var body: some View {
-        NavigationLink(value: trip) {
+        NavigationLink(destination: TripDetailView( tripDetail: TripDetails.tripDetails.filter { $0.id == trip.id }.first!)) {
             VStack {
                 ZStack {
                     Image(trip.imageName)
@@ -55,9 +55,6 @@ struct TripView: View {
             .frame(width: dimension, height: dimension)
             .shadow(color: .gray.opacity(0.2), radius: 10)
         }
-        .navigationDestination(for: Trip.self, destination: { trip in
-            TripDetailView(tripDetail: TripDetails.tripDetails.filter { $0.id == trip.id }.first!)
-        })
     }
 }
 
