@@ -49,6 +49,7 @@ struct TripDetailView: View {
         .onAppear {
             selectedImage = tripDetail.images.first!
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
