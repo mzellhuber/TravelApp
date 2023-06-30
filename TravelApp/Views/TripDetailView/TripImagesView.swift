@@ -37,6 +37,7 @@ struct TripImagesView: View {
         .padding([.leading, .trailing], 10)
         .frame(maxWidth: UIScreen.main.bounds.width)
         .fixedSize()
+        .shadow(color: .gray.opacity(0.9), radius: 10)
     }
 }
 
