@@ -56,11 +56,11 @@ struct TripView: View {
             .shadow(color: .gray.opacity(0.2), radius: 10)
         }
         .navigationDestination(for: Trip.self, destination: { trip in
-            TripDetailView(trip: trip)
+            TripDetailView(tripDetail: TripDetails.tripDetails.filter { $0.id == trip.id }.first!)
         })
     }
 }
 
 #Preview {
-    TripView(trip: .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: ImageResource(name: "mountains", bundle: Bundle.main)), dimension: 200)
+    TripView(trip: .init(id: 0, title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: ImageResource(name: "mountains", bundle: Bundle.main)), dimension: 200)
 }
