@@ -25,106 +25,344 @@
       }
     },
     "Animate" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Animar"
+          }
+        }
+      }
     },
     "Banner Image" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imagen fondo"
+          }
+        }
+      }
     },
     "Camera" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cámara"
+          }
+        }
+      }
     },
     "Categories" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Categorias"
+          }
+        }
+      }
     },
     "Celsius" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Celsius"
+          }
+        }
+      }
     },
     "City" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ciudad"
+          }
+        }
+      }
     },
     "Country" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pais"
+          }
+        }
+      }
     },
     "Dark" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oscuro"
+          }
+        }
+      }
     },
     "Description" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descripción"
+          }
+        }
+      }
     },
     "Direction" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dirección"
+          }
+        }
+      }
     },
     "Discover trip" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descubre Viajes"
+          }
+        }
+      }
     },
     "Edit Profile" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editar Perfil"
+          }
+        }
+      }
     },
     "Email" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
+          }
+        }
+      }
     },
     "Enable Notifications" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Habilitar Notificaciones"
+          }
+        }
+      }
     },
     "Explore Trips" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explorar Viajes"
+          }
+        }
+      }
     },
     "Fahrenheit" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fahrenheit"
+          }
+        }
+      }
     },
     "Hi, Mariam," : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hola, %1$@"
+          }
+        }
+      }
     },
     "Light" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Claro"
+          }
+        }
+      }
     },
     "Log In" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log In"
+          }
+        }
+      }
     },
     "Log Out" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log Out"
+          }
+        }
+      }
     },
     "Name" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre"
+          }
+        }
+      }
     },
     "None" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ninguno"
+          }
+        }
+      }
     },
     "Photo Library" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Biblioteca de Fotos"
+          }
+        }
+      }
     },
     "Preferences" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferencias"
+          }
+        }
+      }
     },
     "Profile Image" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imagen de Perfil"
+          }
+        }
+      }
     },
     "Save" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar"
+          }
+        }
+      }
     },
     "Search your next trip" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar tu próximo viaje"
+          }
+        }
+      }
     },
     "See all" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver todos"
+          }
+        }
+      }
     },
     "Select Image" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleccionar imagen"
+          }
+        }
+      }
     },
     "Settings" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuración"
+          }
+        }
+      }
     },
     "System" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sistema"
+          }
+        }
+      }
     },
     "Temperature Units" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unidad temperatura"
+          }
+        }
+      }
     },
     "Theme" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tema"
+          }
+        }
+      }
     },
     "Where do you want \nto go?" : {
-
+      "localizations" : {
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿A dónde quieres ir?"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
