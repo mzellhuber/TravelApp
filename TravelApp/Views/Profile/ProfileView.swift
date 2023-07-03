@@ -51,7 +51,8 @@ struct ProfileView: View {
                                 .clipShape(Circle())
                                 .overlay(Circle().stroke(Color.white, lineWidth: 4))
                                 .shadow(radius: 10)
-                                .padding([.bottom, .leading], 40)
+                                .offset(y: -40)
+                                .padding(.leading, 40)
                         } else {
                             Image(systemName: "person.crop.circle.fill")
                                 .resizable()
@@ -60,7 +61,8 @@ struct ProfileView: View {
                                 .clipShape(Circle())
                                 .overlay(Circle().stroke(Color.white, lineWidth: 4))
                                 .shadow(radius: 10)
-                                .padding([.bottom, .leading], 40)
+                                .offset(y: -40)
+                                .padding(.leading, 40)
                         }
                         
                         Spacer()
@@ -73,8 +75,10 @@ struct ProfileView: View {
                                 .background(Color.purple)
                                 .clipShape(Circle())
                         }
+                        .offset(y: -20) // Move image down
                     }
                     .padding(.trailing, 20)
+                    .background(Color.white) // Add a background to hide the lower part of the banner
                 }
                 
                 Text(profile?.name ?? "Name Not Set")

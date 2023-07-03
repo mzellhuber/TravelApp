@@ -432,6 +432,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"es-MX",
+				ka,
 			);
 			mainGroup = 2FAEF0902A38CFFB007D12AA;
 			productRefGroup = 2FAEF09A2A38CFFB007D12AA /* Products */;

@@ -25,17 +25,18 @@ struct ImageSelectionButton: View {
                 if let image = image {
                     Image(uiImage: image)
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .scaledToFit()
                         .frame(width: 100, height: 100)
                 } else {
                     Image(systemName: "photo")
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .scaledToFit()
                         .frame(width: 100, height: 100)
                 }
                 Spacer()
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .actionSheet(isPresented: $showingActionSheet) {
             ActionSheet(title: Text("Select Image"), buttons: [
                 .default(Text("Photo Library")) {
