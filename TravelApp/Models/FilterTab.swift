@@ -17,25 +17,15 @@ enum FilterTab: String, CaseIterable {
     var trips: [Trip] {
         switch self {
         case .all:
-            return [.init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains),
-                    .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains),
-                    .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains)]
+            return [Trips.trips[0], Trips.trips[1], Trips.trips[2]]
         case .popular:
-            return [.init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .camp),
-                    .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .camp),
-                    .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .camp)]
+            return [Trips.trips[4], Trips.trips[3], Trips.trips[0]]
         case .recommended:
-            return [.init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .forest),
-                    .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .forest),
-                    .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .forest)]
+            return [Trips.trips[3], Trips.trips[1], Trips.trips[2]]
         case .mostViews:
-            return [.init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains),
-                    .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains),
-                    .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains)]
+            return [Trips.trips[2], Trips.trips[4], Trips.trips[3]]
         case .recent:
-            return [.init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .camp),
-                    .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .camp),
-                    .init(title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: .mountains)]
+            return [Trips.trips[2], Trips.trips[0], Trips.trips[3]]
         }
     }
 }
