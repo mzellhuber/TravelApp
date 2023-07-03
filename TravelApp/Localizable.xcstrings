@@ -269,7 +269,7 @@
         "es-MX" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Imagen de Perfil"
+            "value" : "Foto de Perfil"
           }
         }
       }
@@ -289,7 +289,7 @@
         "es-MX" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Buscar tu próximo viaje"
+            "value" : "Busca tu próximo viaje"
           }
         }
       }
