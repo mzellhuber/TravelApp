@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CategoriesView: View {
+    @State var selection: Bool = false
+    private let categories: [Category] = [.mountains, .forest, .beach, .camp]
+    
     var body: some View {
         VStack {
             HStack {
@@ -15,20 +18,25 @@ struct CategoriesView: View {
                     .font(.title)
                     .bold()
                 Spacer()
-                Button {
-                    
-                } label: {
-                    HStack {
-                        Text("See all")
-                        Image(systemName: "arrowtriangle.right")
+                NavigationStack {
+                    Button {
+                        selection = true
+                    } label: {
+                        HStack {
+                            Text("See all")
+                            Image(systemName: "arrowtriangle.right")
+                        }
                     }
+                    .tint(.gray)
+                    .bold()
+                    .navigationDestination(isPresented: $selection, destination: {
+                        CategoryListView()
+                    })
                 }
-                .tint(.gray)
-                .bold()
             }
             ScrollView(.horizontal) {
                 HStack(spacing: 10) {
-                    ForEach(Category.allCases, id: \.self) { category in
+                    ForEach(categories, id: \.self) { category in
                         CategoryView(category: category)
                     }
                 }

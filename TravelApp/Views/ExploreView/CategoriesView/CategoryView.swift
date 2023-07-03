@@ -13,7 +13,7 @@ struct CategoryView: View {
     var body: some View {
         VStack {
             VStack {
-                Image(category.image)
+                Image(category.image ?? .mountains)
                     .resizable()
                     .cornerRadius(10)
                     .frame(width: 120, height: 80)

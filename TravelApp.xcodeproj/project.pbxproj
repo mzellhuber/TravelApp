@@ -43,6 +43,7 @@
 		32829FD52A45D8A500307D76 /* FIlterTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32829FD42A45D8A500307D76 /* FIlterTabView.swift */; };
 		32829FD72A45D93C00307D76 /* FilterTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32829FD62A45D93C00307D76 /* FilterTabsView.swift */; };
 		32829FDA2A45D9F600307D76 /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32829FD92A45D9F600307D76 /* TripView.swift */; };
+		32E120162A52FA4D00F029D7 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E120152A52FA4D00F029D7 /* CategoryListView.swift */; };
 		32E43B782A45E68600AE7E55 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E43B772A45E68600AE7E55 /* CustomSearchBar.swift */; };
 		32E43B7A2A49AEF200AE7E55 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E43B792A49AEF200AE7E55 /* Trip.swift */; };
 		32E43B7C2A49AF0500AE7E55 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E43B7B2A49AF0500AE7E55 /* Category.swift */; };
@@ -106,6 +107,7 @@
 		32829FD42A45D8A500307D76 /* FIlterTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIlterTabView.swift; sourceTree = "<group>"; };
 		32829FD62A45D93C00307D76 /* FilterTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTabsView.swift; sourceTree = "<group>"; };
 		32829FD92A45D9F600307D76 /* TripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripView.swift; sourceTree = "<group>"; };
+		32E120152A52FA4D00F029D7 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		32E43B772A45E68600AE7E55 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		32E43B792A49AEF200AE7E55 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		32E43B7B2A49AF0500AE7E55 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				325F78A12A4DC47B0088B45C /* TripView */,
 				325F78A32A4DC4D50088B45C /* TripDetailView */,
 				32829FD82A45D94600307D76 /* ExploreView */,
+				32E120152A52FA4D00F029D7 /* CategoryListView.swift */,
 				32272C312A38E03400E9926B /* SearchView.swift */,
 				2FAE46D82A3BF48C00D88E4C /* Profile */,
 				32272C2F2A38E01D00E9926B /* MyTripsView.swift */,
@@ -496,6 +499,7 @@
 				32272C2C2A38DFE100E9926B /* ExploreView.swift in Sources */,
 				32829FD72A45D93C00307D76 /* FilterTabsView.swift in Sources */,
 				32E43B782A45E68600AE7E55 /* CustomSearchBar.swift in Sources */,
+				32E120162A52FA4D00F029D7 /* CategoryListView.swift in Sources */,
 				2F4F434B2A4333F200F5421D /* EditProfileView.swift in Sources */,
 				32272C302A38E01D00E9926B /* MyTripsView.swift in Sources */,
 				2F4F435A2A434ED000F5421D /* Country.swift in Sources */,
