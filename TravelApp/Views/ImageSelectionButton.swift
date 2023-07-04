@@ -17,26 +17,31 @@ struct ImageSelectionButton: View {
     @State private var inputImage: UIImage?
 
     var body: some View {
-        Button(action: {
-            showingActionSheet = true
-        }) {
-            VStack {
-                Spacer()
-                if let image = image {
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 100, height: 100)
-                } else {
-                    Image(systemName: "photo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 100, height: 100)
-                }
-                Spacer()
+        ZStack {
+            if let image = image {
+                Image(uiImage: image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .clipShape(Circle())
+                    .frame(width: 100, height: 100)
+                    .padding()
+            } else {
+                Image(systemName: "person.circle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100, height: 100)
+                    .padding()
             }
+            Button(action: {
+                showingActionSheet = true
+            }) {
+                Image(systemName: "camera")
+                    .padding()
+                    .background(Color.white.opacity(0.7))
+                    .clipShape(Circle())
+            }
+            .offset(x: 30, y: 30)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .actionSheet(isPresented: $showingActionSheet) {
             ActionSheet(title: Text("Select Image"), buttons: [
                 .default(Text("Photo Library")) {
