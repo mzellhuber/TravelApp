@@ -11,7 +11,7 @@ import os
 
 struct EditProfileView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @Environment(\.presentationMode) private var presentationMode
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.modelContext) private var modelContext
     
     @Binding var profile: Profile
@@ -37,7 +37,27 @@ struct EditProfileView: View {
     }
     
     var body: some View {
-        NavigationView {
+            VStack {
+                ZStack(alignment: .bottomLeading) {
+                    ImageSelectionButton(image: bannerImage, onImageSelected: { selectedImage in
+                        self.bannerImage = selectedImage
+                    }, shape: .square, width: UIScreen.main.bounds.width, height: 200)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 200)
+                    .clipped()
+                    .edgesIgnoringSafeArea(.top)
+                    
+                    ImageSelectionButton(image: image, onImageSelected: { selectedImage in
+                        self.image = selectedImage
+                    }, shape: .circle, width: 100, height: 100)
+                    .scaledToFit()
+                    .frame(width: 100, height: 100)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                    .shadow(radius: 10)
+                    .offset(y: -40)
+                    .padding(.leading, 40)
+                }
             Form {
                 Section(header: Text("Name")) {
                     TextField("Name", text: $name)
@@ -58,44 +78,41 @@ struct EditProfileView: View {
                         }
                     }
                 }
-                Section(header: Text("Profile Image")) {
-                    ImageSelectionButton(image: image) { selectedImage in
-                        self.image = selectedImage
-                    }
-                }
-                Section(header: Text("Banner Image")) {
-                    ImageSelectionButton(image: bannerImage) { selectedImage in
-                        self.bannerImage = selectedImage
-                    }
-                }
             }
-            .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
-                ImagePicker(selectedImage: self.$inputImage, sourceType: self.imageSourceType)
-            }
-            .onAppear {
-                name = profile.name ?? ""
-                email = profile.email ?? ""
-                city = profile.city ?? ""
-                if let countryCode = profile.country {
-                    selectedCountry = countries.first { $0.cca2 == countryCode }
-                }
-                if let imageData = profile.image {
-                    image = UIImage(data: imageData)
-                }
-                if let bannerImageData = profile.bannerImage {
-                    bannerImage = UIImage(data: bannerImageData)
-                }
-                
-                fetchCountries()
-            }
-            .navigationBarTitle(Text("Edit Profile"), displayMode: .inline)
-            .navigationBarItems(trailing: Button(action: {
-                updateProfile()
-                presentationMode.wrappedValue.dismiss()
-            }) {
-                Text("Save")
-            })
         }
+        .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
+            ImagePicker(selectedImage: self.$inputImage, sourceType: self.imageSourceType)
+        }
+        .onAppear {
+            name = profile.name ?? ""
+            email = profile.email ?? ""
+            city = profile.city ?? ""
+            if let countryCode = profile.country {
+                selectedCountry = countries.first { $0.cca2 == countryCode }
+            }
+            if let imageData = profile.image {
+                image = UIImage(data: imageData)
+            }
+            if let bannerImageData = profile.bannerImage {
+                bannerImage = UIImage(data: bannerImageData)
+            }
+            
+            fetchCountries()
+        }
+        .navigationBarTitle(Text(""), displayMode: .inline)
+        .navigationBarBackButtonHidden(true) // Hides the default back button
+        .navigationBarItems(leading: Button(action: {
+            presentationMode.wrappedValue.dismiss()
+        }) {
+            Image(systemName: "arrow.backward.circle.fill")
+                .foregroundColor(.white)
+        }, trailing: Button(action: {
+            updateProfile()
+            presentationMode.wrappedValue.dismiss()
+        }) {
+            Image(systemName: "checkmark.circle.fill")
+                .foregroundColor(.white)
+        })
     }
     
     func updateProfile() {
@@ -119,7 +136,6 @@ struct EditProfileView: View {
             logger.error("Error saving the profile")
         }
         presentationMode.wrappedValue.dismiss()
-        
     }
     
     private func fetchCountries() {

@@ -103,12 +103,8 @@ struct ProfileView: View {
                     // Show settings sheet
                     self.isShowingSheet = true
                 }) {
-                    Image(systemName: "gearshape")
-                        .font(.system(size: 20))
-                        .foregroundColor(.purple)
-                        .padding()
-                        .background(Color.white)
-                        .clipShape(Circle())
+                    Image(systemName: "gearshape.circle.fill")
+                        .foregroundColor(.white)
                 }
             }
             )

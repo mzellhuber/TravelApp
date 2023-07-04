@@ -7,9 +7,16 @@
 
 import SwiftUI
 
+enum ImageShape {
+    case circle, square
+}
+
 struct ImageSelectionButton: View {
     let image: UIImage?
     let onImageSelected: (UIImage) -> Void
+    let shape: ImageShape
+    let width: CGFloat?
+    let height: CGFloat?
 
     @State private var showingActionSheet = false
     @State private var showingImagePicker = false
@@ -19,25 +26,42 @@ struct ImageSelectionButton: View {
     var body: some View {
         ZStack {
             if let image = image {
-                Image(uiImage: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .clipShape(Circle())
-                    .frame(width: 100, height: 100)
-                    .padding()
+                if shape == .circle {
+                    Image(uiImage: image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(Circle())
+                        .frame(width: width ?? UIScreen.main.bounds.width, height: height ?? UIScreen.main.bounds.height)
+                        .padding()
+                } else {
+                    Image(uiImage: image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .clipShape(Rectangle())
+                        .frame(width: width ?? UIScreen.main.bounds.width, height: height ?? UIScreen.main.bounds.height)
+                        .padding()
+                }
             } else {
-                Image(systemName: "person.circle")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 100, height: 100)
-                    .padding()
+                if shape == .circle {
+                    Image(systemName: "person.circle")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: width ?? UIScreen.main.bounds.width, height: height ?? UIScreen.main.bounds.height)
+                        .padding()
+                } else {
+                    Image(systemName: "rectangle")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: width ?? UIScreen.main.bounds.width, height: height ?? UIScreen.main.bounds.height)
+                        .padding()
+                }
             }
             Button(action: {
                 showingActionSheet = true
             }) {
                 Image(systemName: "camera")
                     .padding()
-                    .background(Color.white.opacity(0.7))
+                    .background(Color.white.opacity(0.8))
                     .clipShape(Circle())
             }
             .offset(x: 30, y: 30)
@@ -61,8 +85,7 @@ struct ImageSelectionButton: View {
     }
 
     func loadImage() {
-        if let inputImage = inputImage {
-            onImageSelected(inputImage)
-        }
+        guard let inputImage = inputImage else { return }
+        onImageSelected(inputImage)
     }
 }

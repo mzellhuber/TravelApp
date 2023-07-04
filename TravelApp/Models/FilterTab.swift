@@ -11,7 +11,7 @@ enum FilterTab: String, CaseIterable {
     case all = "All"
     case popular = "Popular"
     case recommended = "Recommended"
-    case mostViews = "Most Viewd"
+    case mostViews = "Most Viewed"
     case recent = "Recent"
     
     var trips: [Trip] {

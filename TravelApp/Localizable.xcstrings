@@ -35,6 +35,7 @@
       }
     },
     "Banner Image" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es-MX" : {
           "stringUnit" : {
@@ -135,6 +136,7 @@
       }
     },
     "Edit Profile" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es-MX" : {
           "stringUnit" : {
@@ -265,6 +267,7 @@
       }
     },
     "Profile Image" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es-MX" : {
           "stringUnit" : {
@@ -275,6 +278,7 @@
       }
     },
     "Save" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es-MX" : {
           "stringUnit" : {
