@@ -11,12 +11,23 @@ enum ImageShape {
     case circle, square
 }
 
+struct ImageSelectionButtonFactory {
+    static func createCircleButton(image: UIImage?, onImageSelected: @escaping (UIImage) -> Void, width: CGFloat? = nil, height: CGFloat? = nil) -> ImageSelectionButton {
+        ImageSelectionButton(image: image, onImageSelected: onImageSelected, shape: .circle, width: width, height: height, offset: CGSize(width: 30, height: 30))
+    }
+
+    static func createSquareButton(image: UIImage?, onImageSelected: @escaping (UIImage) -> Void, width: CGFloat? = nil, height: CGFloat? = nil) -> ImageSelectionButton {
+        ImageSelectionButton(image: image, onImageSelected: onImageSelected, shape: .square, width: width, height: height, offset: CGSize(width: (width ?? 0) - 250, height: 110))
+    }
+}
+
 struct ImageSelectionButton: View {
     let image: UIImage?
     let onImageSelected: (UIImage) -> Void
     let shape: ImageShape
     let width: CGFloat?
     let height: CGFloat?
+    let offset: CGSize
 
     @State private var showingActionSheet = false
     @State private var showingImagePicker = false
@@ -64,7 +75,7 @@ struct ImageSelectionButton: View {
                     .background(Color.white.opacity(0.8))
                     .clipShape(Circle())
             }
-            .offset(x: 30, y: 30)
+            .offset(offset)
         }
         .actionSheet(isPresented: $showingActionSheet) {
             ActionSheet(title: Text("Select Image"), buttons: [

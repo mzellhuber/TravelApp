@@ -39,22 +39,18 @@ struct EditProfileView: View {
     var body: some View {
             VStack {
                 ZStack(alignment: .bottomLeading) {
-                    ImageSelectionButton(image: bannerImage, onImageSelected: { selectedImage in
+                    ImageSelectionButtonFactory.createSquareButton(image: bannerImage, onImageSelected: { selectedImage in
                         self.bannerImage = selectedImage
-                    }, shape: .square, width: UIScreen.main.bounds.width, height: 200)
+                    }, width: UIScreen.main.bounds.width, height: 200)
                     .aspectRatio(contentMode: .fill)
-                    .frame(height: 200)
+                    //.frame(height: 200)
                     .clipped()
                     .edgesIgnoringSafeArea(.top)
                     
-                    ImageSelectionButton(image: image, onImageSelected: { selectedImage in
+                    ImageSelectionButtonFactory.createCircleButton(image: image, onImageSelected: { selectedImage in
                         self.image = selectedImage
-                    }, shape: .circle, width: 100, height: 100)
+                    }, width: 100, height: 100)
                     .scaledToFit()
-                    .frame(width: 100, height: 100)
-                    .clipShape(Circle())
-                    .overlay(Circle().stroke(Color.white, lineWidth: 4))
-                    .shadow(radius: 10)
                     .offset(y: -40)
                     .padding(.leading, 40)
                 }
