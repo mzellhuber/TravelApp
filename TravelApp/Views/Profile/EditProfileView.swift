@@ -37,25 +37,24 @@ struct EditProfileView: View {
     }
     
     var body: some View {
-        VStack(spacing: 0) {
-            ZStack(alignment: .bottomLeading) {
-                ImageSelectionButtonFactory.createSquareButton(image: bannerImage, onImageSelected: { selectedImage in
-                    self.bannerImage = selectedImage
-                }, width: UIScreen.main.bounds.width, height: 200)
-                .aspectRatio(contentMode: .fill)
-                //.frame(height: 200)
-                .clipped()
-                .edgesIgnoringSafeArea(.top)
-                
-                ImageSelectionButtonFactory.createCircleButton(image: image, onImageSelected: { selectedImage in
-                    self.image = selectedImage
-                }, width: 100, height: 100)
-                .scaledToFit()
-                .offset(y: -40)
-                .padding(.leading, 40)
-            }
-
-            List {
+            VStack {
+                ZStack(alignment: .bottomLeading) {
+                    ImageSelectionButtonFactory.createSquareButton(image: bannerImage, onImageSelected: { selectedImage in
+                        self.bannerImage = selectedImage
+                    }, width: UIScreen.main.bounds.width, height: 200)
+                    .aspectRatio(contentMode: .fill)
+                    //.frame(height: 200)
+                    .clipped()
+                    .edgesIgnoringSafeArea(.top)
+                    
+                    ImageSelectionButtonFactory.createCircleButton(image: image, onImageSelected: { selectedImage in
+                        self.image = selectedImage
+                    }, width: 100, height: 100)
+                    .scaledToFit()
+                    .offset(y: -40)
+                    .padding(.leading, 40)
+                }
+            Form {
                 Section(header: Text("Name")) {
                     TextField("Name", text: $name)
                 }
@@ -76,7 +75,8 @@ struct EditProfileView: View {
                     }
                 }
             }
-            .listStyle(GroupedListStyle())
+            .edgesIgnoringSafeArea(.all)
+            .offset(y: -68)
         }
         .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
             ImagePicker(selectedImage: self.$inputImage, sourceType: self.imageSourceType)
@@ -97,21 +97,21 @@ struct EditProfileView: View {
             
             fetchCountries()
         }
-            .navigationBarTitle(Text(""), displayMode: .inline)
-            .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading: Button(action: {
-                presentationMode.wrappedValue.dismiss()
-            }) {
-                Image(systemName: "arrow.backward.circle.fill")
-                    .foregroundColor(.white)
-            }, trailing: Button(action: {
-                updateProfile()
-                presentationMode.wrappedValue.dismiss()
-            }) {
-                Image(systemName: "checkmark.circle.fill")
-                    .foregroundColor(.white)
-            })
-        }
+        .navigationBarTitle(Text(""), displayMode: .inline)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: Button(action: {
+            presentationMode.wrappedValue.dismiss()
+        }) {
+            Image(systemName: "arrow.backward.circle.fill")
+                .foregroundColor(.white)
+        }, trailing: Button(action: {
+            updateProfile()
+            presentationMode.wrappedValue.dismiss()
+        }) {
+            Image(systemName: "checkmark.circle.fill")
+                .foregroundColor(.white)
+        })
+    }
     
     func updateProfile() {
         print("Profile in updateProfile: \(String(describing: profile))")
