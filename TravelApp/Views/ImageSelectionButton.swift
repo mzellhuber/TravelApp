@@ -12,12 +12,12 @@ enum ImageShape {
 }
 
 struct ImageSelectionButtonFactory {
-    static func createCircleButton(image: UIImage?, onImageSelected: @escaping (UIImage) -> Void, width: CGFloat? = nil, height: CGFloat? = nil) -> ImageSelectionButton {
-        ImageSelectionButton(image: image, onImageSelected: onImageSelected, shape: .circle, width: width, height: height, offset: CGSize(width: 30, height: 30))
+    static func createCircleButton(image: UIImage?, onImageSelected: @escaping (UIImage) -> Void, width: CGFloat? = nil, height: CGFloat? = nil, borderColor: Color = .white, borderWidth: CGFloat = 4.0) -> ImageSelectionButton {
+        ImageSelectionButton(image: image, onImageSelected: onImageSelected, shape: .circle, width: width, height: height, offset: CGSize(width: 30, height: 30), borderColor: borderColor, borderWidth: borderWidth)
     }
 
     static func createSquareButton(image: UIImage?, onImageSelected: @escaping (UIImage) -> Void, width: CGFloat? = nil, height: CGFloat? = nil) -> ImageSelectionButton {
-        ImageSelectionButton(image: image, onImageSelected: onImageSelected, shape: .square, width: width, height: height, offset: CGSize(width: (width ?? 0) - 250, height: 110))
+        ImageSelectionButton(image: image, onImageSelected: onImageSelected, shape: .square, width: width, height: height, offset: CGSize(width: (width ?? 0) - 250, height: 110), borderColor: .white, borderWidth: 2.0)
     }
 }
 
@@ -28,6 +28,8 @@ struct ImageSelectionButton: View {
     let width: CGFloat?
     let height: CGFloat?
     let offset: CGSize
+    let borderColor: Color
+    let borderWidth: CGFloat
 
     @State private var showingActionSheet = false
     @State private var showingImagePicker = false
@@ -42,6 +44,7 @@ struct ImageSelectionButton: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .clipShape(Circle())
+                        .overlay(Circle().stroke(borderColor, lineWidth: borderWidth))
                         .frame(width: width ?? UIScreen.main.bounds.width, height: height ?? UIScreen.main.bounds.height)
                         .padding()
                 } else {
