@@ -56,7 +56,7 @@ struct InfoView: View {
 }
 
 #Preview {
-    InfoView(tripDetail: .init(id: 4,
+    InfoView(tripDetail: .init(id: UUID(),
                                title: "Tiveden",
                                location: "Sweden",
                                rating: "4.2",

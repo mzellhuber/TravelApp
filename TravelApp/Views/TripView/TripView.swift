@@ -12,15 +12,20 @@ struct TripView: View {
     let dimension: CGFloat
     
     var body: some View {
-        NavigationLink(destination: TripDetailView( tripDetail: TripDetails.tripDetails.filter { $0.id == trip.id }.first!)) {
+        NavigationLink(destination: TripDetailView(tripDetail: TripDetail(id: trip.id,
+                                                                          title: trip.title,
+                                                                          location: trip.location,
+                                                                          rating: trip.rating,
+                                                                          images: [ImageResource(name: trip.imageName, bundle: Bundle.main)],
+                                                                          description: ""))) {
             VStack {
                 ZStack {
-                    Image(trip.imageName)
-                        .resizable()
-                        .scaledToFill()
+                    RemoteImage(url: trip.imageName)
                         .frame(width: dimension - 5, height: dimension - 5)
+                    
                     VStack {
                         Spacer()
+                        
                         VStack {
                             VStack {
                                 HStack {
@@ -30,6 +35,7 @@ struct TripView: View {
                                     Spacer()
                                 }
                                 .padding(.bottom, 2)
+                                
                                 HStack {
                                     Text(trip.location)
                                     Text(trip.rating)
@@ -40,7 +46,7 @@ struct TripView: View {
                             .foregroundColor(.black)
                             .padding(10)
                         }
-                        .background(.white.opacity(0.6))
+                        .background(Color.white.opacity(0.6))
                         .cornerRadius(10)
                         .padding(.trailing, 5)
                         .padding(.leading, 5)
@@ -50,14 +56,24 @@ struct TripView: View {
                 .cornerRadius(10)
                 .padding(5)
             }
-            .background(.white)
+            .background(Color.white)
             .cornerRadius(10)
             .frame(width: dimension, height: dimension)
-            .shadow(color: .gray.opacity(0.2), radius: 10)
+            .shadow(color: Color.gray.opacity(0.2), radius: 10)
         }
+                                                                          .buttonStyle(PlainButtonStyle())
+    }
+}
+struct ContentView: View {
+    var body: some View {
+        TripView(trip: Trip(id: UUID(), title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: "https://example.com/mountains.jpg"), dimension: 200)
     }
 }
 
-#Preview {
-    TripView(trip: .init(id: 0, title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: ImageResource(name: "mountains", bundle: Bundle.main)), dimension: 200)
+#if DEBUG
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
+#endif

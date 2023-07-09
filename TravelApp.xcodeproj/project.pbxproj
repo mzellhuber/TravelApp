@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F3414FA2A59BBF9009C6833 /* AddTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3414F92A59BBF9009C6833 /* AddTripView.swift */; };
 		2F4F434B2A4333F200F5421D /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F434A2A4333F200F5421D /* EditProfileView.swift */; };
 		2F4F434F2A4338EA00F5421D /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F434E2A4338EA00F5421D /* NetworkRequest.swift */; };
 		2F4F43532A433AEF00F5421D /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F43522A433AEF00F5421D /* NetworkError.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F3414F92A59BBF9009C6833 /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
 		2F4F434A2A4333F200F5421D /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		2F4F434E2A4338EA00F5421D /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		2F4F43522A433AEF00F5421D /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				32829FD92A45D9F600307D76 /* TripView.swift */,
+				2F3414F92A59BBF9009C6833 /* AddTripView.swift */,
 			);
 			path = TripView;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				32272C342A39D82D00E9926B /* CustomTabItem.swift in Sources */,
 				32E43B7E2A49AFF300AE7E55 /* FilterTab.swift in Sources */,
 				32272C372A39D8ED00E9926B /* CustomBottomView.swift in Sources */,
+				2F3414FA2A59BBF9009C6833 /* AddTripView.swift in Sources */,
 				323F8B6D2A45E04000FE004D /* TripsView.swift in Sources */,
 				32829FD12A45D5B500307D76 /* CategoriesView.swift in Sources */,
 				2F4F43562A433B6000F5421D /* CountriesRequest.swift in Sources */,

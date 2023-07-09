@@ -54,7 +54,7 @@ struct TripDetailView: View {
 }
 
 #Preview {
-    TripDetailView(tripDetail: .init(id: 4,
+    TripDetailView(tripDetail: .init(id: UUID(),
                                      title: "Tiveden",
                                      location: "Sweden",
                                      rating: "4.2",
