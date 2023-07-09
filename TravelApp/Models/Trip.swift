@@ -6,43 +6,25 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Trip: Hashable, Equatable {
+@Model
+class Trip: Hashable, Equatable {
     static func ==(lhs: Trip, rhs: Trip) -> Bool {
         return lhs.id.uuidString == rhs.id.uuidString
     }
     
-    let id: UUID
+    @Attribute(.unique) var id: UUID
     let title: String
     let location: String
     let rating: String
     let imageName: String
-}
-
-enum Trips {
-    static let trips: [Trip] = [.init(id: UUID(),
-                                      title: "Avanada Logo",
-                                      location: "Thailand",
-                                      rating: "5",
-                                      imageName: "https://placehold.co/600x400"),
-                                .init(id: UUID(),
-                                      title: "Batumi",
-                                      location: "Georgia",
-                                      rating: "4.9",
-                                      imageName: "https://placehold.co/600x400"),
-                                .init(id: UUID(),
-                                      title: "Berlin",
-                                      location: "Germany",
-                                      rating: "5",
-                                      imageName: "https://placehold.co/600x400"),
-                                .init(id: UUID(),
-                                      title: "Racha",
-                                      location: "Georgia",
-                                      rating: "4.5",
-                                      imageName: "https://placehold.co/600x400"),
-                                .init(id: UUID(),
-                                      title: "Tiveden",
-                                      location: "Sweden",
-                                      rating: "4.2",
-                                      imageName: "https://placehold.co/600x400")]
+    
+    init(id: UUID, title: String, location: String, rating: String, imageName: String) {
+        self.id = id
+        self.title = title
+        self.location = location
+        self.rating = rating
+        self.imageName = imageName
+    }
 }
