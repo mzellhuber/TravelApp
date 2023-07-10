@@ -9,8 +9,14 @@ import SwiftUI
 
 struct SearchView: View {
     @State var searchText = ""
-    @State var filteredTrips: [Trip] = Trips.trips
+    let profile: Profile
+    @State var filteredTrips: [Trip]
     
+    init() {
+        self.profile = Profile()
+        self._filteredTrips = State(initialValue: profile.trips)
+    }
+
     var body: some View {
         NavigationStack {
             GeometryReader { geo in
@@ -38,9 +44,9 @@ struct SearchView: View {
     
     private func filterTrips() {
         if searchText.isEmpty {
-            filteredTrips = Trips.trips
+            filteredTrips = profile.trips
         } else {
-            filteredTrips = Trips.trips.filter { $0.title.contains(searchText) || $0.location.contains(searchText)
+            filteredTrips = profile.trips.filter { $0.title.contains(searchText) || $0.location.contains(searchText)
             }
         }
     }

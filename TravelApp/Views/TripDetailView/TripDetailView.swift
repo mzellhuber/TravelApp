@@ -9,25 +9,28 @@ import SwiftUI
 
 struct TripDetailView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-    let tripDetail: TripDetail
-    @State var selectedImage: ImageResource = ImageResource(name: "forest", bundle: Bundle.main)
+    let trip: Trip
+    @State var selectedImage: UIImage?
     
     var body: some View {
         ZStack {
             VStack {
-                Image(selectedImage)
-                    .resizable()
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 2/3, alignment: .center)
-                    .scaledToFill()
-                    .ignoresSafeArea()
+                if let image = selectedImage {
+                    Image(uiImage: image)
+                        .resizable()
+                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 2/3, alignment: .center)
+                        .scaledToFill()
+                        .ignoresSafeArea()
+                }
                 Spacer()
             }
-            TripImagesView(selectedImage: $selectedImage, images: tripDetail.images)
-                .padding(.bottom, UIScreen.main.bounds.height * 1/4)
-            
+            if let _ = selectedImage {
+                TripImagesView(selectedImage: $selectedImage, images: trip.details.images.compactMap { UIImage(data: $0) })
+                    .padding(.bottom, UIScreen.main.bounds.height * 1/4)
+            }
         }
         .sheet(isPresented: .constant(true)) {
-            InfoView(tripDetail: tripDetail)
+            InfoView(trip: trip)
                 .presentationCornerRadius(40)
                 .presentationDetents([.medium, .large])
                 .interactiveDismissDisabled()
@@ -47,17 +50,11 @@ struct TripDetailView: View {
                 .foregroundColor(.white)
         })
         .onAppear {
-            selectedImage = tripDetail.images.first!
+            if let data = trip.details.images.first,
+               let uiImage = UIImage(data: data) {
+                selectedImage = uiImage
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
     }
-}
-
-#Preview {
-    TripDetailView(tripDetail: .init(id: UUID(),
-                                     title: "Tiveden",
-                                     location: "Sweden",
-                                     rating: "4.2",
-                                     images: [ImageResource(name: "forest", bundle: Bundle.main)],
-                                     description: "New"))
 }

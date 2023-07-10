@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct TripImagesView: View {
-    @Binding var selectedImage: ImageResource
-    let images: [ImageResource]
+    @Binding var selectedImage: UIImage?
+    let images: [UIImage]
     
     var body: some View {
         HStack {
             ScrollView(.horizontal) {
                 HStack(spacing: 10) {
-                    ForEach(images, id: \.self) { image in
+                    ForEach(images, id: \.self) { uiImage in
                         Button {
-                            selectedImage = image
+                            selectedImage = uiImage
                         } label: {
-                            Image(image)
+                            Image(uiImage: uiImage)
                                 .resizable()
                                 .scaledToFill()
                         }
@@ -39,8 +39,4 @@ struct TripImagesView: View {
         .fixedSize()
         .shadow(color: .gray.opacity(0.9), radius: 10)
     }
-}
-
-#Preview {
-    TripImagesView(selectedImage: .constant(ImageResource(name: "forest", bundle: Bundle.main)), images: [ImageResource(name: "forest", bundle: Bundle.main), ImageResource(name: "mountains", bundle: Bundle.main)])
 }

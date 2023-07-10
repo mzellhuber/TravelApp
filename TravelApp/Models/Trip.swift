@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import Combine
 
 @Model
 class Trip: Hashable, Equatable {
@@ -20,11 +21,39 @@ class Trip: Hashable, Equatable {
     let rating: String
     let imageName: String
     
-    init(id: UUID, title: String, location: String, rating: String, imageName: String) {
+    @Relationship(.cascade)
+    var details: TripDetail
+    //var cancellables = Set<AnyCancellable>()
+    
+    init(id: UUID, title: String, location: String, rating: String, imageName: String, details: TripDetail) {
         self.id = id
         self.title = title
         self.location = location
         self.rating = rating
         self.imageName = imageName
+        self.details = details
+    }
+    
+//    func fetchImages(from urls: [URL]) {
+//        Publishers.MergeMany(urls.map { URLSession.shared.dataTaskPublisher(for: $0) })
+//            .sink(
+//                receiveCompletion: { _ in },
+//                receiveValue: { data, _ in
+//                    self.details.images.append(data)
+//                }
+//            )
+//            .store(in: &cancellables)
+//    }
+}
+
+@Model
+class TripDetail {
+    @Attribute(.unique) var id: UUID
+    var images: [Data] = []
+    let description: String
+    
+    init(images: [Data], description: String) {
+        self.images = images
+        self.description = description
     }
 }

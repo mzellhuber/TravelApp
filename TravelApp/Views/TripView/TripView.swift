@@ -12,12 +12,7 @@ struct TripView: View {
     let dimension: CGFloat
     
     var body: some View {
-        NavigationLink(destination: TripDetailView(tripDetail: TripDetail(id: trip.id,
-                                                                          title: trip.title,
-                                                                          location: trip.location,
-                                                                          rating: trip.rating,
-                                                                          images: [ImageResource(name: trip.imageName, bundle: Bundle.main)],
-                                                                          description: ""))) {
+        NavigationLink(destination: TripDetailView(trip: trip)) {
             VStack {
                 ZStack {
                     RemoteImage(url: trip.imageName)
@@ -61,12 +56,19 @@ struct TripView: View {
             .frame(width: dimension, height: dimension)
             .shadow(color: Color.gray.opacity(0.2), radius: 10)
         }
-                                                                          .buttonStyle(PlainButtonStyle())
+        .buttonStyle(PlainButtonStyle())
     }
 }
+
 struct ContentView: View {
     var body: some View {
-        TripView(trip: Trip(id: UUID(), title: "Avanada Logo", location: "Thailand", rating: "4.9", imageName: "https://example.com/mountains.jpg"), dimension: 200)
+        TripView(trip: Trip(id: UUID(),
+                            title: "Avanada Logo",
+                            location: "Thailand",
+                            rating: "4.9",
+                            imageName: "https://example.com/mountains.jpg",
+                            details: TripDetail(images: [], description: "")),
+                 dimension: 200)
     }
 }
 

@@ -7,9 +7,27 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct TripsView: View {
     @State var selectedTab: FilterTab = .all
-    
+    @State var trips: [Trip] = []
+
+    var filteredTrips: [Trip] {
+        switch selectedTab {
+        case .all:
+            return trips
+        case .popular:
+            return trips
+        case .recommended:
+            return trips
+        case .mostViews:
+            return trips
+        case .recent:
+            return trips
+        }
+    }
+
     var body: some View {
         VStack {
             HStack {
@@ -22,7 +40,7 @@ struct TripsView: View {
                 .padding(.bottom)
             ScrollView(.horizontal) {
                 HStack(spacing: 20) {
-                    ForEach(selectedTab.trips, id: \.self) { trip in
+                    ForEach(filteredTrips, id: \.self) { trip in
                         TripView(trip: trip, dimension: 200)
                     }
                 }

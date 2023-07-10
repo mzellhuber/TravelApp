@@ -18,6 +18,9 @@ class Profile {
     var image: Data?
     var bannerImage: Data?
     
+    @Relationship(.cascade)
+    var trips: [Trip] = []
+    
     init(id: UUID = UUID(), name: String? = nil, email: String? = nil, city: String? = nil, country: String? = nil, image: Data? = nil, bannerImage: Data? = nil) {
         self.id = id
         self.name = name

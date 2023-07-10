@@ -24,6 +24,9 @@
         }
       }
     },
+    "Add Trip" : {
+
+    },
     "All Categories" : {
 
     },
@@ -199,6 +202,9 @@
         }
       }
     },
+    "Image Name/URL" : {
+
+    },
     "Light" : {
       "localizations" : {
         "es-MX" : {
@@ -208,6 +214,9 @@
           }
         }
       }
+    },
+    "Location" : {
+
     },
     "Log In" : {
       "localizations" : {
@@ -279,6 +288,9 @@
           }
         }
       }
+    },
+    "Rating" : {
+
     },
     "Save" : {
       "extractionState" : "stale",
@@ -360,6 +372,9 @@
           }
         }
       }
+    },
+    "Title" : {
+
     },
     "Where do you want \nto go?" : {
       "localizations" : {

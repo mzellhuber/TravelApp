@@ -35,7 +35,7 @@ struct AddTripView: View {
             
             Button("Add Trip") {
                 // Create a new Trip instance using the user input
-                let newTrip = Trip(id: UUID(), title: title, location: location, rating: rating, imageName: imageName)
+                let newTrip = Trip(id: UUID(), title: title, location: location, rating: rating, imageName: imageName, details: TripDetail(images: [], description: "test"))
                 
                 // Perform any additional actions with the new trip (e.g., store in a data source)
                 
