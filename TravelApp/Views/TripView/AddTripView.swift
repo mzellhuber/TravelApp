@@ -12,51 +12,53 @@ struct AddTripView: View {
     @State private var location: String = ""
     @State private var rating: String = ""
     @State private var imageName: String = ""
+    @State private var tripImage: Data?
     
     var body: some View {
-        VStack(spacing: 10) {
-            Image(systemName: "map.fill")
-                .font(.largeTitle)
-                .foregroundColor(.gray)
-            
-            TextField("Title", text: $title)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            TextField("Location", text: $location)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            TextField("Rating", text: $rating)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            
-            
-            TextField("Image Name/URL", text: $imageName)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            Button("Add Trip") {
-                // Create a new Trip instance using the user input
-                let newTrip = Trip(id: UUID(), title: title, location: location, rating: rating, imageName: imageName, details: TripDetail(images: [], description: "test"))
+        NavigationView {
+            Form {
+                Section(header: Text("Trip Details")) {
+                    TextField("Title", text: $title)
+                    TextField("Location", text: $location)
+                    TextField("Rating", text: $rating)
+                }
                 
-                // Perform any additional actions with the new trip (e.g., store in a data source)
+                Section(header: Text("Image")) {
+                    HStack {
+                        Spacer()
+                        ImageSelectionButtonFactory.createSquareButton(image: UIImage(data: tripImage ?? Data()), onImageSelected: { selectedImage in
+                            tripImage = selectedImage.jpegData(compressionQuality: 1.0)
+                        })
+                        .frame(width: 100, height: 100)
+                        Spacer()
+                    }
+                }
                 
-                // Reset the input fields
-                title = ""
-                location = ""
-                rating = ""
-                imageName = ""
+                Section {
+                    Button("Add Trip") {
+                        // Create a new Trip instance using the user input
+                        let newTrip = Trip(id: UUID(), title: title, location: location, rating: rating, imageName: imageName, details: TripDetail(images: [tripImage ?? Data()], description: "test"))
+                        
+                        // Perform any additional actions with the new trip (e.g., store in a data source)
+                        
+                        // Reset the input fields
+                        title = ""
+                        location = ""
+                        rating = ""
+                        imageName = ""
+                        tripImage = nil
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+                }
             }
-            .padding()
-            .foregroundColor(.white)
-            .background(Color.blue)
-            .cornerRadius(10)
+            .navigationTitle("Add a New Trip")
         }
-        .padding()
-        .background(Color.white)
-        .cornerRadius(20)
-        .shadow(radius: 10)
     }
 }
-
 
 struct RemoteImage: View {
     let url: String
