@@ -10,54 +10,61 @@ import SwiftUI
 struct AddTripView: View {
     @State private var title: String = ""
     @State private var location: String = ""
-    @State private var rating: Double = 0
-    @State private var imageName: String = ""
-    @State private var tripImage: Data?
-    
+    @State private var rating: Double = 0.0
+    @State private var image: UIImage? = nil
+
     var body: some View {
-        NavigationView {
+        VStack(spacing: 20) {
+            Text("Add a New Trip")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .padding(.top)
+
             Form {
-                Section(header: Text("Trip Details")) {
+                Section(header: Text("Trip Information")) {
                     TextField("Title", text: $title)
+                        .accentColor(.blue)
+
                     TextField("Location", text: $location)
-                    StarRating(rating: $rating)
-                        .font(.title3)
+                        .accentColor(.blue)
+
+                    StarRating(rating: $rating, maximumRating: 5)
+                        .padding(.vertical, 20)
                 }
                 
-                Section(header: Text("Image")) {
-                    HStack {
-                        Spacer()
-                        ImageSelectionButtonFactory.createCircleButton(image: UIImage(data: tripImage ?? Data()), onImageSelected: { selectedImage in
-                            tripImage = selectedImage.jpegData(compressionQuality: 1.0)
-                        })
-                        .frame(width: 100, height: 100)
-                        Spacer()
-                    }
+                Section(header: Text("Trip Image")) {
+                    ImageSelectionButtonFactory.createSquareButton(image: image, onImageSelected: { selectedImage in
+                        image = selectedImage
+                    }, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.3)
+                    .cornerRadius(10)
+                    .padding(.top, 20)
                 }
-                
+
                 Section {
-                    Button("Add Trip") {
+                    Button(action: {
                         // Create a new Trip instance using the user input
-                        let newTrip = Trip(id: UUID(), title: title, location: location, rating: String(rating), imageName: imageName, details: TripDetail(images: [tripImage ?? Data()], description: "test"))
+                        let newTrip = Trip(id: UUID(), title: title, location: location, rating: String(format: "%.1f", rating), imageName: "", details: TripDetail(images: [], description: "test"))
                         
                         // Perform any additional actions with the new trip (e.g., store in a data source)
                         
                         // Reset the input fields
                         title = ""
                         location = ""
-                        rating = 0
-                        imageName = ""
-                        tripImage = nil
+                        rating = 0.0
+                        image = nil
+                    }) {
+                        Text("Add Trip")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
+                            .cornerRadius(10)
                     }
-                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.blue)
-                    .cornerRadius(10)
                 }
             }
-            .navigationTitle("Add a New Trip")
         }
+        .padding(.horizontal, 20)
     }
 }
 
