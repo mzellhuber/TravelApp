@@ -24,6 +24,19 @@
         }
       }
     },
+    "%lld of %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld of %2$lld"
+          }
+        }
+      }
+    },
+    "Add a New Trip" : {
+
+    },
     "Add Trip" : {
 
     },
@@ -202,7 +215,7 @@
         }
       }
     },
-    "Image Name/URL" : {
+    "Image" : {
 
     },
     "Light" : {
@@ -289,9 +302,6 @@
         }
       }
     },
-    "Rating" : {
-
-    },
     "Save" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -374,6 +384,9 @@
       }
     },
     "Title" : {
+
+    },
+    "Trip Details" : {
 
     },
     "Where do you want \nto go?" : {

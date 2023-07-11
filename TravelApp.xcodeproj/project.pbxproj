@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F0C46102A5CE6F3006CC730 /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0C460F2A5CE6F3006CC730 /* StarRating.swift */; };
 		2F3414FA2A59BBF9009C6833 /* AddTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3414F92A59BBF9009C6833 /* AddTripView.swift */; };
 		2F4F434B2A4333F200F5421D /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F434A2A4333F200F5421D /* EditProfileView.swift */; };
 		2F4F434F2A4338EA00F5421D /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F434E2A4338EA00F5421D /* NetworkRequest.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F0C460F2A5CE6F3006CC730 /* StarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
 		2F3414F92A59BBF9009C6833 /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
 		2F4F434A2A4333F200F5421D /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		2F4F434E2A4338EA00F5421D /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				2FAE46D82A3BF48C00D88E4C /* Profile */,
 				32272C2F2A38E01D00E9926B /* MyTripsView.swift */,
 				2F4F435D2A43B32A00F5421D /* ImageSelectionButton.swift */,
+				2F0C460F2A5CE6F3006CC730 /* StarRating.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 			files = (
 				2F4F434F2A4338EA00F5421D /* NetworkRequest.swift in Sources */,
 				32272C2E2A38DFF000E9926B /* ProfileView.swift in Sources */,
+				2F0C46102A5CE6F3006CC730 /* StarRating.swift in Sources */,
 				2F4F435E2A43B32A00F5421D /* ImageSelectionButton.swift in Sources */,
 				2FAE46D72A3BF22E00D88E4C /* Profile.swift in Sources */,
 				325F78A92A4DE59B0088B45C /* InfoView.swift in Sources */,
