@@ -10,7 +10,7 @@ import SwiftUI
 struct AddTripView: View {
     @State private var title: String = ""
     @State private var location: String = ""
-    @State private var rating: String = ""
+    @State private var rating: Double = 0
     @State private var imageName: String = ""
     @State private var tripImage: Data?
     
@@ -20,13 +20,14 @@ struct AddTripView: View {
                 Section(header: Text("Trip Details")) {
                     TextField("Title", text: $title)
                     TextField("Location", text: $location)
-                    TextField("Rating", text: $rating)
+                    StarRating(rating: $rating)
+                        .font(.title3)
                 }
                 
                 Section(header: Text("Image")) {
                     HStack {
                         Spacer()
-                        ImageSelectionButtonFactory.createSquareButton(image: UIImage(data: tripImage ?? Data()), onImageSelected: { selectedImage in
+                        ImageSelectionButtonFactory.createCircleButton(image: UIImage(data: tripImage ?? Data()), onImageSelected: { selectedImage in
                             tripImage = selectedImage.jpegData(compressionQuality: 1.0)
                         })
                         .frame(width: 100, height: 100)
@@ -37,14 +38,14 @@ struct AddTripView: View {
                 Section {
                     Button("Add Trip") {
                         // Create a new Trip instance using the user input
-                        let newTrip = Trip(id: UUID(), title: title, location: location, rating: rating, imageName: imageName, details: TripDetail(images: [tripImage ?? Data()], description: "test"))
+                        let newTrip = Trip(id: UUID(), title: title, location: location, rating: String(rating), imageName: imageName, details: TripDetail(images: [tripImage ?? Data()], description: "test"))
                         
                         // Perform any additional actions with the new trip (e.g., store in a data source)
                         
                         // Reset the input fields
                         title = ""
                         location = ""
-                        rating = ""
+                        rating = 0
                         imageName = ""
                         tripImage = nil
                     }
