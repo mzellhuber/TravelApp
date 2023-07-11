@@ -96,3 +96,9 @@ struct ImageSelectionButton: View {
         onImageSelected(inputImage)
     }
 }
+
+
+struct ImageData: Identifiable {
+    let id = UUID()
+    let image: UIImage
+}

@@ -25,7 +25,14 @@ struct TripDetailView: View {
                 Spacer()
             }
             if let _ = selectedImage {
-                TripImagesView(selectedImage: $selectedImage, images: trip.details.images.compactMap { UIImage(data: $0) })
+                TripImagesView(selectedImage: $selectedImage, images: trip.details.images.compactMap { imageURLString in
+                    guard let imageURL = URL(string: imageURLString),
+                          let imageData = try? Data(contentsOf: imageURL),
+                          let uiImage = UIImage(data: imageData) else {
+                        return nil
+                    }
+                    return uiImage
+                })
                     .padding(.bottom, UIScreen.main.bounds.height * 1/4)
             }
         }
@@ -50,8 +57,10 @@ struct TripDetailView: View {
                 .foregroundColor(.white)
         })
         .onAppear {
-            if let data = trip.details.images.first,
-               let uiImage = UIImage(data: data) {
+            if let imageURLString = trip.details.images.first,
+               let imageURL = URL(string: imageURLString),
+               let imageData = try? Data(contentsOf: imageURL),
+               let uiImage = UIImage(data: imageData) {
                 selectedImage = uiImage
             }
         }

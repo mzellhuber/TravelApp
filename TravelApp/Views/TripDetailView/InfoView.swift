@@ -44,7 +44,7 @@ struct InfoView: View {
                         .bold()
                     Spacer()
                 }
-                Text(trip.details.description)
+                Text(trip.details.desc)
                     .foregroundColor(.gray)
                     .padding(.top, 2)
                 Spacer()

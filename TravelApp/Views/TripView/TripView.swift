@@ -4,23 +4,29 @@
 //
 //  Created by Mariam Babutsidze on 23.06.23.
 //
-
 import SwiftUI
 
 struct TripView: View {
     let trip: Trip
     let dimension: CGFloat
-    
+
     var body: some View {
         NavigationLink(destination: TripDetailView(trip: trip)) {
             VStack {
                 ZStack {
-                    RemoteImage(url: trip.imageName)
-                        .frame(width: dimension - 5, height: dimension - 5)
-                    
+                    if let imageUrl = trip.details.images.first {
+                        RemoteImage(urlString: imageUrl)
+                            .frame(width: dimension - 5, height: dimension - 5)
+                    } else {
+                        Image("placeholder")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: dimension - 5, height: dimension - 5)
+                    }
+
                     VStack {
                         Spacer()
-                        
+
                         VStack {
                             VStack {
                                 HStack {
@@ -30,7 +36,7 @@ struct TripView: View {
                                     Spacer()
                                 }
                                 .padding(.bottom, 2)
-                                
+
                                 HStack {
                                     Text(trip.location)
                                     Text(trip.rating)

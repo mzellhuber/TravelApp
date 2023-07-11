@@ -19,7 +19,6 @@ class Trip: Hashable, Equatable {
     let title: String
     let location: String
     let rating: String
-    let imageName: String
     
     @Relationship(.cascade)
     var details: TripDetail
@@ -30,30 +29,18 @@ class Trip: Hashable, Equatable {
         self.title = title
         self.location = location
         self.rating = rating
-        self.imageName = imageName
         self.details = details
     }
-    
-//    func fetchImages(from urls: [URL]) {
-//        Publishers.MergeMany(urls.map { URLSession.shared.dataTaskPublisher(for: $0) })
-//            .sink(
-//                receiveCompletion: { _ in },
-//                receiveValue: { data, _ in
-//                    self.details.images.append(data)
-//                }
-//            )
-//            .store(in: &cancellables)
-//    }
 }
 
 @Model
 class TripDetail {
     @Attribute(.unique) var id: UUID
-    var images: [Data] = []
-    let description: String
+    var images: [String] = []
+    let desc: String
     
-    init(images: [Data], description: String) {
+    init(images: [String], description: String) {
         self.images = images
-        self.description = description
+        self.desc = description
     }
 }

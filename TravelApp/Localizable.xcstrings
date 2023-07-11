@@ -37,6 +37,9 @@
     "Add a New Trip" : {
 
     },
+    "Add Image" : {
+
+    },
     "Add Trip" : {
 
     },
@@ -215,9 +218,6 @@
         }
       }
     },
-    "Image" : {
-
-    },
     "Light" : {
       "localizations" : {
         "es-MX" : {
@@ -227,9 +227,6 @@
           }
         }
       }
-    },
-    "Location" : {
-
     },
     "Log In" : {
       "localizations" : {
@@ -383,10 +380,13 @@
         }
       }
     },
-    "Title" : {
+    "Trip Description" : {
 
     },
-    "Trip Details" : {
+    "Trip Images" : {
+
+    },
+    "Trip Information" : {
 
     },
     "Where do you want \nto go?" : {
