@@ -22,6 +22,9 @@ struct ProfileView: View {
     @State private var isShowingSheet = false
     
     @Environment(\.modelContext) private var modelContext
+    
+    @State private var isAddingTrip = false
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -95,6 +98,41 @@ struct ProfileView: View {
                     .padding(.top, 10)
                 
                 Spacer()
+                
+                VStack {
+                    Divider() // Separator
+                    
+                    NavigationLink(destination: AddTripView(), isActive: $isAddingTrip) {
+                        EmptyView()
+                    }
+                    
+                    Button(action: {
+                        // Start adding a new trip
+                        isAddingTrip = true
+                    }) {
+                        HStack {
+                            Image(systemName: "plus") // Plus sign
+                                .foregroundColor(.white)
+                                .font(.title)
+                            
+                            Text("Add Trip")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
+                        .cornerRadius(10)
+                    }
+                    .padding(.horizontal, 20)
+                    
+                    Divider() // Separator
+                }
+                .padding(.bottom, 20)
+                
+                MyTripsView()
+                
+                Spacer()
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing:
@@ -117,7 +155,7 @@ struct ProfileView: View {
         }
     }
     
-    func setProfile () {
+    func setProfile() {
         if let firstProfile = profiles.first {
             profile = firstProfile
         } else {

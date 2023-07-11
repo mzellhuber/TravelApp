@@ -39,7 +39,7 @@ struct CustomTabView<Content: View>: View {
 enum TabType: Int, CaseIterable {
     case home = 0
     case search
-    case myTrips
+    //case myTrips
     case profile
     
     var tabItem: CustomTabItem {
@@ -48,8 +48,8 @@ enum TabType: Int, CaseIterable {
             return .init(imageName: "house")
         case .search:
             return .init(imageName: "magnifyingglass")
-        case .myTrips:
-            return .init(imageName: "map")
+//        case .myTrips:
+//            return .init(imageName: "map")
         case .profile:
             return .init(imageName: "person.crop.circle")
         }
