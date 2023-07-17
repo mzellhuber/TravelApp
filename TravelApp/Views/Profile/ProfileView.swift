@@ -89,8 +89,8 @@ struct ProfileView: View {
                 VStack {
                     Divider() // Separator
                     
-                    NavigationLink(destination: AddTripView(), isActive: $viewModel.isAddingTrip) {
-                        EmptyView()
+                    .navigationDestination(isPresented: $viewModel.isAddingTrip) {
+                        AddTripView()
                     }
                     
                     Button(action: {
