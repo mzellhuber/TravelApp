@@ -8,9 +8,8 @@
 import Foundation
 import SwiftData
 
-@Model
-class Trip: Hashable, Equatable {
-    static func ==(lhs: Trip, rhs: Trip) -> Bool {
+@Model final public class Trip: Hashable, Equatable {
+    public static func ==(lhs: Trip, rhs: Trip) -> Bool {
         return lhs.uuid.uuidString == rhs.uuid.uuidString
     }
     

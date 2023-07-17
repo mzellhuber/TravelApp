@@ -19,7 +19,7 @@ struct TravelAppApp: App {
                 MainView()
                     .environment(\.colorScheme, colorScheme)
             }
-        }
+        }.modelContainer(for: [Profile.self, Trip.self, TripDetail.self])
     }
     
     private var colorScheme: ColorScheme {

@@ -8,8 +8,7 @@
 import Foundation
 import SwiftData
 
-@Model
-class Profile {
+@Model final public class Profile {
     @Attribute(originalName: "creationDate_")
     var creationDate: Date?
     
@@ -53,7 +52,7 @@ class Profile {
     
     static func example() -> Profile {
         let profile = Profile(name: "test profile")
-       let context = Profile.exampleContext
+        let context = Profile.exampleContext
         context.insert(profile)
         
         return profile
