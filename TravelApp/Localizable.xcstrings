@@ -47,6 +47,7 @@
 
     },
     "Animate" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es-MX" : {
           "stringUnit" : {

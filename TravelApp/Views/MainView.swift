@@ -24,10 +24,6 @@ struct MainView: View {
             ExploreView(selectedIndex: $selectedIndex)
         case .search:
             SearchView()
-//        case .myTrips:
-//            NavigationView {
-//                MyTripsView()
-//            }
         case .profile:
            ProfileView()
         }

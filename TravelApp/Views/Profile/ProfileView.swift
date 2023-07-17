@@ -6,30 +6,15 @@
 //
 
 import SwiftUI
-import os
-import SwiftData
 
 struct ProfileView: View {
-    @Query var profiles: [Profile]  // Fetches all profiles
-    @State private var profile: Profile?  // State for the first profile
-    
-    private let logger = Logger(subsystem: "Profile", category: String(describing: ProfileView.self))
-    
-    @State private var countries: [Country] = []
-    
-    private let countryFetcher = CountryFetcher()
-    
-    @State private var isShowingSheet = false
-    
-    @Environment(\.modelContext) private var modelContext
-    
-    @State private var isAddingTrip = false
+    @ObservedObject private var viewModel = ProfileViewModel()
     
     var body: some View {
         NavigationView {
             VStack {
                 ZStack(alignment: .bottomLeading) {
-                    if let bannerImageData = profile?.bannerImage, let bannerImage = UIImage(data: bannerImageData) {
+                    if let bannerImageData = viewModel.profile?.bannerImage, let bannerImage = UIImage(data: bannerImageData) {
                         Image(uiImage: bannerImage)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
@@ -46,7 +31,7 @@ struct ProfileView: View {
                     }
                     
                     HStack {
-                        if let imageData = profile?.image, let image = UIImage(data: imageData) {
+                        if let imageData = viewModel.profile?.image, let image = UIImage(data: imageData) {
                             Image(uiImage: image)
                                 .resizable()
                                 .scaledToFit()
@@ -70,7 +55,9 @@ struct ProfileView: View {
                         
                         Spacer()
                         
-                        NavigationLink(destination: EditProfileView(profile: $profile.toUnwrapped(defaultValue: Profile()))) {
+                        NavigationLink(destination: EditProfileView(profile: Binding<Profile>(
+                            get: { viewModel.profile ?? Profile() },
+                            set: { newValue in viewModel.profile = newValue }))) {
                             Image(systemName: "pencil")
                                 .font(.system(size: 20))
                                 .foregroundColor(.white)
@@ -84,16 +71,16 @@ struct ProfileView: View {
                     .background(Color.white) // Add a background to hide the lower part of the banner
                 }
                 
-                Text(profile?.name ?? "Name Not Set")
+                Text(viewModel.profile?.name ?? "Name Not Set")
                     .font(.largeTitle)
                     .fontWeight(.medium)
                     .padding(.top, 50)
                 
-                Text(profile?.email ?? "Email Not Set")
+                Text(viewModel.profile?.email ?? "Email Not Set")
                     .font(.title2)
                     .padding(.top, 10)
                 
-                Text("\(profile?.city ?? "City Not Set"), \(profile?.country ?? "Country Not Set")")
+                Text("\(viewModel.profile?.city ?? "City Not Set"), \(viewModel.profile?.country ?? "Country Not Set")")
                     .font(.title2)
                     .padding(.top, 10)
                 
@@ -102,13 +89,13 @@ struct ProfileView: View {
                 VStack {
                     Divider() // Separator
                     
-                    NavigationLink(destination: AddTripView(), isActive: $isAddingTrip) {
+                    NavigationLink(destination: AddTripView(), isActive: $viewModel.isAddingTrip) {
                         EmptyView()
                     }
                     
                     Button(action: {
                         // Start adding a new trip
-                        isAddingTrip = true
+                        viewModel.addTrip()
                     }) {
                         HStack {
                             Image(systemName: "plus") // Plus sign
@@ -139,28 +126,19 @@ struct ProfileView: View {
                                     HStack {
                 Button(action: {
                     // Show settings sheet
-                    self.isShowingSheet = true
+                    viewModel.toggleSheet()
                 }) {
                     Image(systemName: "gearshape.circle.fill")
                         .foregroundColor(.white)
                 }
             }
             )
-            .sheet(isPresented: $isShowingSheet) {
+            .sheet(isPresented: $viewModel.isShowingSheet) {
                 SettingsView()
             }
         }
         .onAppear {
-            setProfile()
-        }
-    }
-    
-    func setProfile() {
-        if let firstProfile = profiles.first {
-            profile = firstProfile
-        } else {
-            profile = Profile()
-            modelContext.insert(profile!)
+            viewModel.setProfile()
         }
     }
 }

@@ -10,6 +10,7 @@
 		2F0C46102A5CE6F3006CC730 /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0C460F2A5CE6F3006CC730 /* StarRating.swift */; };
 		2F0C46122A5D0049006CC730 /* RequiredTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0C46112A5D0049006CC730 /* RequiredTextField.swift */; };
 		2F0C46142A5D0C28006CC730 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0C46132A5D0C28006CC730 /* RemoteImage.swift */; };
+		2F2444002A657DEB00A02826 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2443FF2A657DEB00A02826 /* ProfileViewModel.swift */; };
 		2F3414FA2A59BBF9009C6833 /* AddTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3414F92A59BBF9009C6833 /* AddTripView.swift */; };
 		2F4F434B2A4333F200F5421D /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F434A2A4333F200F5421D /* EditProfileView.swift */; };
 		2F4F434F2A4338EA00F5421D /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F434E2A4338EA00F5421D /* NetworkRequest.swift */; };
@@ -74,6 +75,7 @@
 		2F0C460F2A5CE6F3006CC730 /* StarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
 		2F0C46112A5D0049006CC730 /* RequiredTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequiredTextField.swift; sourceTree = "<group>"; };
 		2F0C46132A5D0C28006CC730 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		2F2443FF2A657DEB00A02826 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		2F3414F92A59BBF9009C6833 /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
 		2F4F434A2A4333F200F5421D /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		2F4F434E2A4338EA00F5421D /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
@@ -145,6 +147,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F2443FE2A657DC800A02826 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2F2443FF2A657DEB00A02826 /* ProfileViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		2F4F434C2A4338BA00F5421D /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +188,7 @@
 				32272C2D2A38DFF000E9926B /* ProfileView.swift */,
 				2FAE46D92A3BF4B700D88E4C /* SettingsView.swift */,
 				2F4F434A2A4333F200F5421D /* EditProfileView.swift */,
+				32272C2F2A38E01D00E9926B /* MyTripsView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -205,6 +216,7 @@
 		2FAEF09B2A38CFFB007D12AA /* TravelApp */ = {
 			isa = PBXGroup;
 			children = (
+				2F2443FE2A657DC800A02826 /* ViewModels */,
 				2FE3AE6D2A4DC1910095E682 /* Helpers */,
 				32829FCB2A45C3CA00307D76 /* Localizable.xcstrings */,
 				2FAEF0A02A38CFFC007D12AA /* Assets.xcassets */,
@@ -253,7 +265,6 @@
 				32E120152A52FA4D00F029D7 /* CategoryListView.swift */,
 				32272C312A38E03400E9926B /* SearchView.swift */,
 				2FAE46D82A3BF48C00D88E4C /* Profile */,
-				32272C2F2A38E01D00E9926B /* MyTripsView.swift */,
 				2F4F435D2A43B32A00F5421D /* ImageSelectionButton.swift */,
 				2F0C460F2A5CE6F3006CC730 /* StarRating.swift */,
 				2F0C46112A5D0049006CC730 /* RequiredTextField.swift */,
@@ -527,6 +538,7 @@
 				32829FDA2A45D9F600307D76 /* TripView.swift in Sources */,
 				32829FD52A45D8A500307D76 /* FIlterTabView.swift in Sources */,
 				325F78AF2A4EFF750088B45C /* TripImagesView.swift in Sources */,
+				2F2444002A657DEB00A02826 /* ProfileViewModel.swift in Sources */,
 				2FAE46DA2A3BF4B700D88E4C /* SettingsView.swift in Sources */,
 				32E43B7C2A49AF0500AE7E55 /* Category.swift in Sources */,
 			);

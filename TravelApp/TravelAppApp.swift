@@ -12,7 +12,7 @@ import SwiftData
 struct TravelAppApp: App {
     
     @AppStorage("themePreference") var themePreference: String = "System"
-    
+        
     var body: some Scene {
         WindowGroup {
             NavigationView {
@@ -20,7 +20,6 @@ struct TravelAppApp: App {
                     .environment(\.colorScheme, colorScheme)
             }
         }
-        .modelContainer(for: [Profile.self, Trip.self])
     }
     
     private var colorScheme: ColorScheme {

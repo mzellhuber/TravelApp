@@ -7,40 +7,75 @@
 
 import Foundation
 import SwiftData
-import Combine
 
 @Model
 class Trip: Hashable, Equatable {
     static func ==(lhs: Trip, rhs: Trip) -> Bool {
-        return lhs.id.uuidString == rhs.id.uuidString
+        return lhs.uuid.uuidString == rhs.uuid.uuidString
     }
     
-    @Attribute(.unique) var id: UUID
+    @Attribute(originalName: "uuid_")
+    let uuid: UUID
+    
+    @Attribute(originalName: "creationDate_")
+    let creationDate: Date
+    
     let title: String
     let location: String
     let rating: String
     
-    @Relationship(.cascade)
+    @Relationship(.cascade, inverse: \TripDetail.trip)
     var details: TripDetail
-    //var cancellables = Set<AnyCancellable>()
     
-    init(id: UUID, title: String, location: String, rating: String, imageName: String, details: TripDetail) {
-        self.id = id
+    var profile: Profile?     // to-one relationships is always optional
+
+    init(id: UUID = UUID(),
+         title: String = "",
+         location: String = "",
+         rating: String = "0.0",
+         imageName: String = "",
+         details: TripDetail = TripDetail(),
+         creationDate: Date = Date()) {
+        self.uuid = id
         self.title = title
         self.location = location
         self.rating = rating
         self.details = details
     }
+    
+    static func delete(_ trip: Trip) {
+        if let context = trip.context {
+            context.delete(trip)
+            //try? context.save() // suggested fix
+        }
+    }
 }
 
-@Model
-class TripDetail {
-    @Attribute(.unique) var id: UUID
+@Model final public class TripDetail {
+    @Attribute(originalName: "uuid_")
+    let uuid: UUID
+    
+    @Attribute(originalName: "creationDate_")
+    let creationDate: Date
+    
     var images: [String] = []
     let desc: String
     
-    init(images: [String], description: String) {
+    @Relationship(.cascade, inverse: \Trip.details) var details = TripDetail()
+    
+    var trip: Trip?
+        
+    init(id: UUID = UUID(), images: [String] = [],
+         description: String = "", creationDate: Date = Date()) {
+        self.uuid = id
         self.images = images
         self.desc = description
+    }
+    
+    static func delete(_ tripDetail: TripDetail) {
+        if let context = tripDetail.context {
+            context.delete(tripDetail)
+            //try? context.save() // suggested fix
+        }
     }
 }

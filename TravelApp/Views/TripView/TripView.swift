@@ -17,37 +17,42 @@ struct TripView: View {
                     if let imageUrl = trip.details.images.first {
                         RemoteImage(urlString: imageUrl)
                             .frame(width: dimension - 5, height: dimension - 5)
+                            .cornerRadius(10)
+                            .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
                     } else {
                         Image("placeholder")
                             .resizable()
                             .scaledToFill()
                             .frame(width: dimension - 5, height: dimension - 5)
+                            .cornerRadius(10)
+                            .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
                     }
 
                     VStack {
                         Spacer()
 
-                        VStack {
-                            VStack {
-                                HStack {
-                                    Text(trip.title)
-                                        .font(.caption)
-                                        .bold()
-                                    Spacer()
-                                }
-                                .padding(.bottom, 2)
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(trip.title)
+                                .font(.caption)
+                                .bold()
+                                .foregroundColor(.white)
+                                .lineLimit(1)
 
-                                HStack {
-                                    Text(trip.location)
-                                    Text(trip.rating)
-                                    Spacer()
-                                }
-                                .font(.caption2)
+                            HStack {
+                                Text(trip.location)
+                                    .font(.caption2)
+                                    .foregroundColor(.white)
+                                Spacer()
+                                Image(systemName: "star.fill")
+                                    .foregroundColor(.yellow)
+                                Text(trip.rating)
+                                    .font(.caption2)
+                                    .foregroundColor(.white)
                             }
-                            .foregroundColor(.black)
-                            .padding(10)
                         }
-                        .background(Color.white.opacity(0.6))
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(Color.black.opacity(0.6))
                         .cornerRadius(10)
                         .padding(.trailing, 5)
                         .padding(.leading, 5)

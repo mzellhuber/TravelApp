@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import os
+import SwiftData
 
 struct AddTripView: View {
     @State private var title: String = ""
@@ -14,7 +16,14 @@ struct AddTripView: View {
     @State private var description: String = ""
     @State private var imageFileURLs: [URL] = []
     @State private var isFormSubmitted: Bool = false
-
+    
+    @State private var trip: Trip = Trip()
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.modelContext) private var modelContext
+    
+    private let logger = Logger(subsystem: "AddTripView", category: String(describing: AddTripView.self))
+    
     var body: some View {
         VStack(spacing: 20) {
             Text("Add a New Trip")
@@ -77,9 +86,15 @@ struct AddTripView: View {
                         if !isRequiredFieldsEmpty() {
                             // Create a new Trip instance using the user input
                             let imageUrls = imageFileURLs.map { $0.absoluteString }
-                            let newTrip = Trip(id: UUID(), title: title, location: location, rating: String(format: "%.1f", rating), imageName: "", details: TripDetail(images: imageUrls, description: description))
+                            
+                            trip = Trip(id: UUID(), title: title, location: location, rating: String(format: "%.1f", rating), imageName: "", details: TripDetail(images: imageUrls, description: description))
 
-                            // Perform any additional actions with the new trip (e.g., store in a data source)
+                            do {
+                                modelContext.insert(trip)
+                                try viewContext.save()
+                            } catch {
+                                logger.error("Error saving the trip")
+                            }
                             
                             // Reset the input fields
                             title = ""
