@@ -60,8 +60,6 @@ import SwiftData
     var images: [String] = []
     let desc: String
     
-    @Relationship(.cascade, inverse: \Trip.details) var details = TripDetail()
-    
     var trip: Trip?
         
     init(id: UUID = UUID(), images: [String] = [],
