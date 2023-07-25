@@ -8,10 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F4F434B2A4333F200F5421D /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F434A2A4333F200F5421D /* EditProfileView.swift */; };
-		2F4F434F2A4338EA00F5421D /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F434E2A4338EA00F5421D /* NetworkRequest.swift */; };
-		2F4F43532A433AEF00F5421D /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F43522A433AEF00F5421D /* NetworkError.swift */; };
 		2F4F43562A433B6000F5421D /* CountriesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F43552A433B6000F5421D /* CountriesRequest.swift */; };
-		2F4F43582A433BF300F5421D /* CountryFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F43572A433BF300F5421D /* CountryFetcher.swift */; };
 		2F4F435A2A434ED000F5421D /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F43592A434ED000F5421D /* Country.swift */; };
 		2F4F435C2A43AD2F00F5421D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F435B2A43AD2F00F5421D /* ImagePicker.swift */; };
 		2F4F435E2A43B32A00F5421D /* ImageSelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F435D2A43B32A00F5421D /* ImageSelectionButton.swift */; };
@@ -43,6 +40,7 @@
 		32829FD52A45D8A500307D76 /* FIlterTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32829FD42A45D8A500307D76 /* FIlterTabView.swift */; };
 		32829FD72A45D93C00307D76 /* FilterTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32829FD62A45D93C00307D76 /* FilterTabsView.swift */; };
 		32829FDA2A45D9F600307D76 /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32829FD92A45D9F600307D76 /* TripView.swift */; };
+		32D9C0132A6FC84E000E55E4 /* CountriesFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D9C0122A6FC84E000E55E4 /* CountriesFetcher.swift */; };
 		32E120162A52FA4D00F029D7 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E120152A52FA4D00F029D7 /* CategoryListView.swift */; };
 		32E43B782A45E68600AE7E55 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E43B772A45E68600AE7E55 /* CustomSearchBar.swift */; };
 		32E43B7A2A49AEF200AE7E55 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E43B792A49AEF200AE7E55 /* Trip.swift */; };
@@ -69,10 +67,7 @@
 
 /* Begin PBXFileReference section */
 		2F4F434A2A4333F200F5421D /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
-		2F4F434E2A4338EA00F5421D /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
-		2F4F43522A433AEF00F5421D /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		2F4F43552A433B6000F5421D /* CountriesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesRequest.swift; sourceTree = "<group>"; };
-		2F4F43572A433BF300F5421D /* CountryFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryFetcher.swift; sourceTree = "<group>"; };
 		2F4F43592A434ED000F5421D /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		2F4F435B2A43AD2F00F5421D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		2F4F435D2A43B32A00F5421D /* ImageSelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectionButton.swift; sourceTree = "<group>"; };
@@ -107,6 +102,7 @@
 		32829FD42A45D8A500307D76 /* FIlterTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIlterTabView.swift; sourceTree = "<group>"; };
 		32829FD62A45D93C00307D76 /* FilterTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTabsView.swift; sourceTree = "<group>"; };
 		32829FD92A45D9F600307D76 /* TripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripView.swift; sourceTree = "<group>"; };
+		32D9C0122A6FC84E000E55E4 /* CountriesFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesFetcher.swift; sourceTree = "<group>"; };
 		32E120152A52FA4D00F029D7 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		32E43B772A45E68600AE7E55 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		32E43B792A49AEF200AE7E55 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
@@ -142,28 +138,10 @@
 		2F4F434C2A4338BA00F5421D /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				2F4F434D2A4338CF00F5421D /* Network */,
-				2F4F43572A433BF300F5421D /* CountryFetcher.swift */,
+				32D9C0102A6FC7FA000E55E4 /* Requests */,
+				32D9C0112A6FC833000E55E4 /* Fetcher */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		2F4F434D2A4338CF00F5421D /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				2F4F43542A433B4800F5421D /* Countries */,
-				2F4F434E2A4338EA00F5421D /* NetworkRequest.swift */,
-				2F4F43522A433AEF00F5421D /* NetworkError.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		2F4F43542A433B4800F5421D /* Countries */ = {
-			isa = PBXGroup;
-			children = (
-				2F4F43552A433B6000F5421D /* CountriesRequest.swift */,
-			);
-			path = Countries;
 			sourceTree = "<group>";
 		};
 		2FAE46D82A3BF48C00D88E4C /* Profile */ = {
@@ -341,6 +319,22 @@
 			path = ExploreView;
 			sourceTree = "<group>";
 		};
+		32D9C0102A6FC7FA000E55E4 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				2F4F43552A433B6000F5421D /* CountriesRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		32D9C0112A6FC833000E55E4 /* Fetcher */ = {
+			isa = PBXGroup;
+			children = (
+				32D9C0122A6FC84E000E55E4 /* CountriesFetcher.swift */,
+			);
+			path = Fetcher;
+			sourceTree = "<group>";
+		};
 		32E43B762A45E67300AE7E55 /* CustomSearchBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,13 +476,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F4F434F2A4338EA00F5421D /* NetworkRequest.swift in Sources */,
 				32272C2E2A38DFF000E9926B /* ProfileView.swift in Sources */,
 				2F4F435E2A43B32A00F5421D /* ImageSelectionButton.swift in Sources */,
 				2FAE46D72A3BF22E00D88E4C /* Profile.swift in Sources */,
 				325F78A92A4DE59B0088B45C /* InfoView.swift in Sources */,
 				32829FCF2A45CCCD00307D76 /* CategoryView.swift in Sources */,
 				32272C2A2A38DF7600E9926B /* MainView.swift in Sources */,
+				32D9C0132A6FC84E000E55E4 /* CountriesFetcher.swift in Sources */,
 				325F78AB2A4EF5C70088B45C /* TripDetail.swift in Sources */,
 				32272C342A39D82D00E9926B /* CustomTabItem.swift in Sources */,
 				32E43B7E2A49AFF300AE7E55 /* FilterTab.swift in Sources */,
@@ -506,11 +500,9 @@
 				32272C302A38E01D00E9926B /* MyTripsView.swift in Sources */,
 				2F4F435A2A434ED000F5421D /* Country.swift in Sources */,
 				325F78A72A4DC50D0088B45C /* TripDetailView.swift in Sources */,
-				2F4F43532A433AEF00F5421D /* NetworkError.swift in Sources */,
 				32272C392A39DAB800E9926B /* CustomTabView.swift in Sources */,
 				2FE3AE6F2A4DC19C0095E682 /* Extensions.swift in Sources */,
 				32272C322A38E03400E9926B /* SearchView.swift in Sources */,
-				2F4F43582A433BF300F5421D /* CountryFetcher.swift in Sources */,
 				2FAEF09D2A38CFFB007D12AA /* TravelAppApp.swift in Sources */,
 				32829FDA2A45D9F600307D76 /* TripView.swift in Sources */,
 				32829FD52A45D8A500307D76 /* FIlterTabView.swift in Sources */,

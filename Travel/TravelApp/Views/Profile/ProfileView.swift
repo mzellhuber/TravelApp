@@ -17,7 +17,7 @@ struct ProfileView: View {
     
     @State private var countries: [Country] = []
     
-    private let countryFetcher = CountryFetcher()
+    private let countryFetcher: CountriesFetcher = FetchCountriesService()
     
     @State private var isShowingSheet = false
     

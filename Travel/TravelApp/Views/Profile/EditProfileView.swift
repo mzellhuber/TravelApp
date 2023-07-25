@@ -27,7 +27,7 @@ struct EditProfileView: View {
     @State private var imageSourceType = UIImagePickerController.SourceType.photoLibrary
     
     @State private var countries: [Country] = []
-    private let countryFetcher = CountryFetcher()
+    private let countryFetcher: CountriesFetcher = FetchCountriesService()
     
     private let logger = Logger(subsystem: "EditProfile", category: String(describing: EditProfileView.self))
     
@@ -144,17 +144,7 @@ struct EditProfileView: View {
                     selectedCountry = countries.first { $0.cca2 == countryCode }
                 }
             } catch {
-                switch error {
-                case NetworkError.invalidURL:
-                    // Handle invalid URL error
-                    logger.error("Invalid URL")
-                case NetworkError.decodingFailed:
-                    // Handle decoding failure error
-                    logger.error("Decoding failed")
-                default:
-                    // Handle other errors
-                    logger.error("An error occurred: \(error)")
-                }
+                logger.error("An error occurred: \(error)")
             }
         }
     }
