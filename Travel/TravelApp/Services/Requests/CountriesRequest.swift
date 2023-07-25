@@ -12,7 +12,7 @@ enum CountriesRequest: RequestProtocol {
     case countryList
     
     var host: String {
-        "https://restcountries.com"
+        "restcountries.com"
     }
     
     var headers: [String : String] {
