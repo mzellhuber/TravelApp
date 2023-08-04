@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CategoriesView: View {
     @State var selection: Bool = false
-    private let categories: [Category] = [.mountains, .forest, .beach, .camp]
+    @Binding var categories: [Category]
     
     var body: some View {
         VStack {
@@ -36,7 +36,7 @@ struct CategoriesView: View {
             }
             ScrollView(.horizontal) {
                 HStack(spacing: 10) {
-                    ForEach(categories, id: \.self) { category in
+                    ForEach(categories, id: \.id) { category in
                         CategoryView(category: category)
                     }
                 }
@@ -50,5 +50,5 @@ struct CategoriesView: View {
 }
 
 #Preview {
-    CategoriesView()
+    CategoriesView(categories: .constant([Category.mock]))
 }

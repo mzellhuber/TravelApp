@@ -14,9 +14,20 @@ public protocol RequestProtocol {
     var body: [String: Any] { get }
     var query: [String: String?] { get }
     var requestType: RequestType { get }
+    var port: Int? { get }
+    var scheme: Scheme { get }
+}
+
+public enum Scheme: String {
+    case http
+    case https
 }
 
 public extension RequestProtocol {
+    var scheme: Scheme {
+        .https
+    }
+    
     var body: [String: Any] {
       [:]
     }
@@ -29,11 +40,16 @@ public extension RequestProtocol {
       [:]
     }
     
+    var port: Int? {
+        nil
+    }
+    
     func createURLRequest() throws -> URLRequest {
         var components = URLComponents()
-        components.scheme = "https"
+        components.scheme = scheme.rawValue
         components.host = host
         components.path = path
+        components.port = port
         
         if !query.isEmpty {
             components.queryItems = query.map { URLQueryItem(name: $0, value: $1) }

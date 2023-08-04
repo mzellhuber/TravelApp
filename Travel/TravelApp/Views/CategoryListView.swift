@@ -9,13 +9,14 @@ import SwiftUI
 
 struct CategoryListView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    var categories: [Category] = []
     
     var body: some View {
         List {
-            ForEach(Category.allCases, id: \.self) { category in
+            ForEach(categories, id: \.id) { category in
                 Label(
                     title: {
-                        Text(category.rawValue)
+                        Text(category.title)
                     },
                     icon: {
                         Image(systemName: category.icon)

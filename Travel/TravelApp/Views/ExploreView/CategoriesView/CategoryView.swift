@@ -13,12 +13,11 @@ struct CategoryView: View {
     var body: some View {
         VStack {
             VStack {
-                Image(category.image ?? .mountains)
-                    .resizable()
+                AsyncImage(url: category.imageUrl)
                     .cornerRadius(10)
                     .frame(width: 120, height: 80)
                     .scaledToFill()
-                Text(category.rawValue)
+                Text(category.title)
                     .bold()
             }
             .padding(.top, 5)
@@ -33,5 +32,5 @@ struct CategoryView: View {
 }
 
 #Preview {
-    CategoryView(category: .mountains)
+    CategoryView(category: Category.mock)
 }

@@ -11,6 +11,7 @@ struct ExploreView: View {
     @State private var searchText: String = ""
     @State private var searchIsActive = false
     @Binding var selectedIndex: Int
+    @EnvironmentObject private var categoryModel: CategoryModel
     
     var body: some View {
         NavigationStack {
@@ -29,7 +30,7 @@ struct ExploreView: View {
                         }
                         .padding(.bottom)
                     TripsView()
-                    CategoriesView()
+                    CategoriesView(categories: $categoryModel.categories)
                 }
                 .padding(.leading, 20)
                 .padding(.trailing, 20)
@@ -53,6 +54,19 @@ struct ExploreView: View {
             .background(.lightGrey)
             .scrollClipDisabled()
             .scrollIndicators(.hidden)
+        }
+        .onAppear {
+            Task {
+                await getCategories()
+            }
+        }
+    }
+    
+    private func getCategories() async {
+        do {
+            try await categoryModel.getCategories()
+        } catch {
+            print(error)
         }
     }
 }

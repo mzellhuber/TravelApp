@@ -17,11 +17,12 @@ struct MainView: View {
         }
     }
     
-    @ViewBuilder
+    @MainActor @ViewBuilder
     func getTabView(type: TabType) -> some View {
         switch type {
         case .home:
             ExploreView(selectedIndex: $selectedIndex)
+                .environmentObject(CategoryModel(categoriesFetcher: FetchCategoriesService()))
         case .search:
             SearchView()
         case .myTrips:

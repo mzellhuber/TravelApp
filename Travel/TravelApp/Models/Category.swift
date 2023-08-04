@@ -5,42 +5,35 @@
 //  Created by Mariam Babutsidze on 26.06.23.
 //
 
-import DeveloperToolsSupport
+import Foundation
 
-enum Category: String, CaseIterable {
-    case mountains = "Mountains"
-    case camp = "Camp"
-    case beach = "Beach"
-    case forest = "Forest"
-    case cruise = "Cruise"
+@MainActor
+class CategoryModel: ObservableObject {
+    private var categoriesFetcher: CategoriesFetcher
+    @Published var categories: [Category] = []
     
-    var image: ImageResource? {
-        switch self {
-        case .mountains:
-            return .mountains
-        case .beach:
-            return .sea
-        case .camp:
-            return .camp
-        case .forest:
-            return .forest
-        default:
-            return nil
-        }
+    init(categoriesFetcher: CategoriesFetcher) {
+        self.categoriesFetcher = categoriesFetcher
     }
     
-    var icon: String {
-        switch self {
-        case .mountains:
-            return "mountain.2"
-        case .beach:
-            return "water.waves"
-        case .camp:
-            return "tent.2"
-        case .forest:
-            return "tree"
-        case .cruise:
-            return "sailboat"
-        }
+    func getCategories() async throws {
+        categories = try await categoriesFetcher.fetchCategories()
     }
+}
+
+
+class Category: Decodable {
+    let id: String?
+    let title: String
+    let icon: String
+    let imageUrl: URL
+    
+    init(id: String? = nil, title: String, icon: String, imageUrl: URL) {
+        self.id = id
+        self.title = title
+        self.icon = icon
+        self.imageUrl = imageUrl
+    }
+    
+    static let mock = Category(title: "Mountains", icon: "mountain.2", imageUrl: URL(string: "https://images.app.goo.gl/9UYYnSXetiuvtH9a8")!)
 }
